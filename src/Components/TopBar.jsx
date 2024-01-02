@@ -1,0 +1,42 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppCtx } from "../Context/AppContext";
+
+
+export default function TopBar(){
+    const navigate=useNavigate();
+    function handleLogout(){
+        localStorage.removeItem("token");
+        navigate("/");
+    }
+    const {heading,setHeading}=useContext(AppCtx);
+    return(
+        <div className="topbar">
+                   
+                   <div className="navbar top-bar">
+                    <div className="flex-1">
+                        <a className="text-xl "><b>{heading}</b></a>
+                    </div>
+                    <div className="flex-none">
+                        <div className="dropdown dropdown-end">
+                        <b>Fabian Raja Fernando</b>
+                        </div>
+                        <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component" src="src/assets/zen.png" />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral-content rounded-box w-52">
+                            <li><a className="justify-between" onClick={()=>navigate("/profile")}>Profile</a></li>
+                            <li><a onClick={()=>handleLogout()}>Logout</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+         </div>
+        
+    )
+}
+
