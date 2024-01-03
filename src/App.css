@@ -89,6 +89,10 @@
 .profile-section-1{
     margin-top: 60px;
 }
+.steps-section{
+    padding:5px;
+    cursor: pointer;
+}
 .dashboard-section{
     display:flex;
     flex-direction: column;
@@ -97,6 +101,9 @@
 }
 .task-section{
     background-color: whitesmoke;
+}
+.tasks-section{
+    margin: 15px 0 10px 0;
 }
 .task-submission-form{
     display: flex;

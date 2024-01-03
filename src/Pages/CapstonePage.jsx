@@ -67,7 +67,7 @@ export default function CapstonePage(){
                             <input type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
                             <button className="btn btn-active btn-neutral">Submit</button>
                             </form><br/>
-                            <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyound the deadline</h3><br/>
+                            <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyond the deadline</h3><br/>
                             
                             </div>
                             </div>

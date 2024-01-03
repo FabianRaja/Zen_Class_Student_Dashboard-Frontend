@@ -47,3 +47,18 @@ export async function forgotUser(data){
        return error;
     }
  }
+
+ export async function getClassData(){
+   try {
+      const res=await fetch(`${API}/mern/getClass`,{
+        method:"GET",
+        headers:{
+            "Content-type":"application/json"
+        }
+      })
+      const result=await res.json();
+      return result;
+   } catch (error) {
+      return error;
+   }
+ }
