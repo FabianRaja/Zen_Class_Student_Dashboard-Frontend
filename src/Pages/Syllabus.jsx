@@ -6,7 +6,7 @@ export default function SyllabusPage(){
     const {setHeading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Syllabus");
-    })
+    },[])
     
     return(
         <MainSpace>

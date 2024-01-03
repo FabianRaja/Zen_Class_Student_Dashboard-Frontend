@@ -3,16 +3,18 @@ import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 
 
+
 export default function HomePage(){
     const {setHeading,classData,currentData,setCurrentData}=useContext(AppCtx);
-
     
+   
     useEffect(()=>{
         setHeading("Class");
         if(classData){
             setCurrentData(classData?.message[0]);
         }
     },[])
+    
     return(
         <MainSpace>
             <div className="subject-section">

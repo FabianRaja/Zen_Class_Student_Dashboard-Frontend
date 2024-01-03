@@ -119,6 +119,9 @@
     align-items: center;
     gap:10px;
 }
+.text-heading{
+    text-transform:uppercase ;
+}
 .query-submission-form{
     display: flex;
     flex-direction: column;
@@ -129,6 +132,9 @@
 .requirement-section{
     background-color: whitesmoke;
     border-radius: 15px;
+}
+.requirements-section{
+    margin-bottom: 10px;
 }
 .file-section{
     padding-top: 8px;
@@ -187,9 +193,15 @@
     margin-bottom: 10px;
 }
 .placement-section{
+    margin-left: 10px;
     width: 300px;
     text-align: center;
     background-color: whitesmoke;
+}
+.placement-card-container{
+    display:flex;
+    flex-wrap: wrap;
+    gap:10px;
 }
 .codekata-card-section{
     display: flex;

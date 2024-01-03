@@ -11,12 +11,14 @@ import AppContext from './Context/AppContext.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
-      <BrowserRouter>
+      
+         <BrowserRouter>
       <AppContext>
       <App />
       </AppContext>
       </BrowserRouter>
+    
+      
  
   
 )

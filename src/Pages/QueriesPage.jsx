@@ -6,7 +6,7 @@ export default function QueriesPage(){
     const {setHeading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("My Queries");
-    })
+    },[])
     
     return(
         <MainSpace>
@@ -21,7 +21,7 @@ export default function QueriesPage(){
                                 <option value="3">Coordination Related</option>
                                 <option value="4">Bootcamp Related</option>
                             </select>
-                            <label for="floatingSelect">Category</label>
+                            <label name="floatingSelect">Category</label>
                             </div>
                             <div class="form-floating w-full max-w-xs">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -33,7 +33,7 @@ export default function QueriesPage(){
                                 <option value="4">Codekata</option>
                                 <option value="4">Assessment</option>
                             </select>
-                            <label for="floatingSelect">Subcategory</label>
+                            <label name="floatingSelect">Subcategory</label>
                             </div>
                             <div class="form-floating w-full max-w-xs">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -42,7 +42,7 @@ export default function QueriesPage(){
                                 <option value="2">Tamil</option>
                                 <option value="3">Hindhi</option>
                             </select>
-                            <label for="floatingSelect">Preferred Voice Communication Language</label>
+                            <label name="floatingSelect">Preferred Voice Communication Language</label>
                             </div>
                             <h1 className="text-xl text-center">Details</h1>
                     <input type="text" placeholder="Query Title" className="input input-bordered w-full max-w-xs  text-center" />  

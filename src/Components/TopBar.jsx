@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppCtx } from "../Context/AppContext";
 
@@ -7,19 +7,24 @@ export default function TopBar(){
     const navigate=useNavigate();
     function handleLogout(){
         localStorage.removeItem("token");
+        localStorage.removeItem("data");
         navigate("/");
     }
-    const {heading,setHeading}=useContext(AppCtx);
+    const {heading,userData,setUserData}=useContext(AppCtx);
+    const userDetails=JSON.parse(localStorage.getItem("data"))
+    console.log(userDetails)
+
+    
     return(
         <div className="topbar">
                    
                    <div className="navbar top-bar">
                     <div className="flex-1">
-                        <a className="text-xl "><b>{heading}</b></a>
+                        <a className="text-xl text-heading"><b>{heading}</b></a>
                     </div>
                     <div className="flex-none">
                         <div className="dropdown dropdown-end">
-                        <b>Fabian Raja Fernando</b>
+                        <b className="text-heading">{userDetails.username?userDetails.username:'fab'}</b>
                         </div>
                         <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

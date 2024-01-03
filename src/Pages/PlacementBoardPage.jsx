@@ -1,38 +1,27 @@
 import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
+import Placement from "../Components/Placement";
 
 export default function PlacementBoardPage(){
-    const {setHeading}=useContext(AppCtx);
+    const {setHeading,placement}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Placement Board");
-    })
-    
+    },[])
     return(
         <MainSpace>
-            
             <div className="subject-section">
-            <div class="card placement-section">
-            <div class="card-body">
-                <div className="row">
-                <div className="col">
-                <h5>Fabian Raja</h5>
-                <h5>FSD-MERN</h5>
-                </div>
-                <div className="col">
-                <img className="placement-png-image" src="https://www.zenclass.in/static/media/user.8d49e377.png"/>
-                </div>
-                </div><hr/>
-                <div className="row">
-                <div className="col">
-                <h5>Company: Cognizant</h5>
-                <h5>Current CTC: 6LPA</h5>
-                <h5>Placed Through: Guvi</h5>
-                </div>
-                </div>
-            </div>
-            </div>
-                
+                <div className="placement-card-container">
+                {placement.message && placement.message.map((value,index)=>(
+                   <Placement key={index}
+                   studentName={value.studentName}
+                   branch={value.branch}
+                   companyName={value.companyName}
+                   ctc={value.ctc}
+                   placedBy={value.placedBy}
+                   />
+           ))}  
+                </div>  
             </div>
         </MainSpace>
     )

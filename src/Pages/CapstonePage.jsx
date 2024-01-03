@@ -1,14 +1,30 @@
 import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
+import { capstoneSubmission } from "../Helpers/helper";
 
 
 export default function CapstonePage(){
-    const {setHeading}=useContext(AppCtx);
+    const {msg,setMsg,setHeading,capstone1,setCapstone1,capstone2,setCapstone2,capstone3,setCapstone3,capstone4,setCapstone4,capstone5,setCapstone5}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Capstone");
-    })
+        setMsg("")
+    },[])
     
+    const userDetails=JSON.parse(localStorage.getItem("data"));
+
+    function handleSubmit(){
+        const data={
+            id:userDetails._id,
+            frontendCode:capstone1,
+            backendCode:capstone2,
+            frontendUrl:capstone3,
+            backendUrl:capstone4,
+            comments:capstone5
+        }
+        console.log(data);
+        capstoneSubmission(data).then((result)=>setMsg(result.message)).catch((err)=>setMsg(result.message));
+    }
     return(
         <MainSpace>
              <div className="subject-section">
@@ -16,12 +32,12 @@ export default function CapstonePage(){
              <div className="hero ">
                             <div className="hero-content">
                             <div className="max-w-4xl">
-                            <h1 className="text-5xl text-center">Fabian Raja</h1><br/>
+                            <h1 className="text-5xl text-center text-heading">{userDetails?.username}</h1><br/>
                             <h3 className="text-center">(B51 WD2 Tamil - Capstone Project)</h3><br/>
-                            <h3  className="text-xl text-center">Zen class student dashboard</h3><br/>
+                            <h3  className="text-xl text-center">{userDetails.capstone.title?userDetails.capstone.title:"Title not assigned yet"}</h3><br/>
                             <h3  className="text-xl text-center">Description</h3><br/>
                             <p>To identify and implement the Capstone project as the title given below by meeting all the necessary requirements.</p><br/>
-                            <h2 className="text-xl text-center"><b>Task Title</b>: Zen class student dashboard</h2> <br/>
+                            <h2 className="text-xl text-center"><b>Task Title</b>: {userDetails.capstone.title?userDetails.capstone.title:"Title not assigned yet"}</h2> <br/>
                             <h2 className="text-xl text-center">Any specifications on the design?</h2> <br/>
                             <ul>
                                 <li className=" text-center">Front-end : Reactjs</li>
@@ -59,16 +75,17 @@ export default function CapstonePage(){
                             </ul>
                             <br/>
                             <h2 className="text-xl text-center">Submission</h2><br/>
-                            <form className="capstone-submission-form">
-                            <input type="url" placeholder="Front-end Source code" className="input input-bordered w-full max-w-xs" />
-                            <input type="url" placeholder="Back-end Source code" className="input input-bordered w-full max-w-xs" />
-                            <input type="url" placeholder="Front-end Deployed URL" className="input input-bordered w-full max-w-xs" />
-                            <input type="url" placeholder="Back-end Deployed URL" className="input input-bordered w-full max-w-xs" />
-                            <input type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
-                            <button className="btn btn-active btn-neutral">Submit</button>
-                            </form><br/>
+                            {userDetails.capstone.status!="Submitted" && msg!="capstone submitted successfully"?(<form className="capstone-submission-form" onSubmit={(event)=>event.preventDefault()}>
+                            <input value={capstone1} onChange={(event)=>setCapstone1(event.target.value)} type="url" placeholder="Front-end Source code" className="input input-bordered w-full max-w-xs" />
+                            <input value={capstone2} onChange={(event)=>setCapstone2(event.target.value)} type="url" placeholder="Back-end Source code" className="input input-bordered w-full max-w-xs" />
+                            <input value={capstone3} onChange={(event)=>setCapstone3(event.target.value)} type="url" placeholder="Front-end Deployed URL" className="input input-bordered w-full max-w-xs" />
+                            <input value={capstone4} onChange={(event)=>setCapstone4(event.target.value)} type="url" placeholder="Back-end Deployed URL" className="input input-bordered w-full max-w-xs" />
+                            <input value={capstone5} onChange={(event)=>setCapstone5(event.target.value)} type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
+                            <button className="btn btn-active btn-neutral" onClick={()=>handleSubmit()}>Submit</button>
+                            </form>):<h2 className="text-xl text-center"><b>Submitted for Review</b></h2>}
+                            <br/>
                             <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyond the deadline</h3><br/>
-                            
+                            <h3 className="text-3xl text-heading text-center">{msg?msg:""}</h3>
                             </div>
                             </div>
              </div>

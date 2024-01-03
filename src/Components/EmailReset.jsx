@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../Helpers/helper";
 import { AppCtx } from "../Context/AppContext";
 
@@ -8,6 +8,7 @@ export default function EmailReset(){
     const {password,setPassword,msg,setMsg}=useContext(AppCtx);
     const params=useParams();
     const id=params.id;
+    const navigate=useNavigate();
     useEffect(()=>{
         setPassword("")
         setMsg("")
@@ -15,7 +16,14 @@ export default function EmailReset(){
     function handleSubmit(id){
         const data={password}
         resetPassword(id,data).then((result)=>{
-            setMsg(result.message)
+            if(result.message==="Password Reset successfull"){
+                setMsg(result.message);
+                setTimeout(()=>{
+                    navigate("/");
+                },3000)
+            }else{
+                setMsg(result.message);
+            } 
         }).catch((error)=>console.log(error));
     }
   
@@ -33,7 +41,7 @@ export default function EmailReset(){
                 </div>
                 <button type="button" className="btn btn-primary login-button mb-3" onClick={()=>handleSubmit(id)}>Change Password</button><br/>
                 <b>{msg?msg:""}</b><br/>
-                <b>{msg?"You can close this window":""}</b>
+                <b>{msg?"Redirecting to Login Page":""}</b>
         </form>
     )
 }

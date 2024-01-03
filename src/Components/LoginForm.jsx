@@ -4,9 +4,13 @@ import { loginUser } from "../Helpers/helper";
 import { useNavigate } from "react-router-dom";
 import { AppCtx } from "../Context/AppContext";
 
+
+
 export default function LoginForm(){
     const {email,setEmail,password,setPassword,msg,setMsg}=useContext(AppCtx);
-
+   
+    
+     
    useEffect(()=>{
     setEmail(""),
     setPassword(""),
@@ -21,8 +25,13 @@ export default function LoginForm(){
         }
         loginUser(data).then((result)=>{
                 if(result.message==="login successful"){
+                    setMsg(result.message);
+                    localStorage.setItem("data",JSON.stringify(result.user));
                     localStorage.setItem("token",result.token);
-                    navigate("/home")
+                    setTimeout(()=>{
+                        navigate("/home")
+                    },500)
+                    
                 }else{
                     setMsg(result.message);
                 }
@@ -30,6 +39,7 @@ export default function LoginForm(){
     }
     return(
                 <form className="login-email-password-section" onSubmit={(event)=>event.preventDefault()}>
+                <a className="login-forgot-button" onClick={()=>navigate("/register")}>New User? <b>Register</b></a><br/><br/>
                 <div className="form-floating mb-3">
                 <input type="email" className="form-control login-email" id="floatingInput" placeholder="name@example.com"
                 value={email} onChange={(event)=>setEmail(event.target.value)}

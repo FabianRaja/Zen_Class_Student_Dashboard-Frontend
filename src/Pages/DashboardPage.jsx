@@ -132,8 +132,8 @@ export default function DateCalendarServerRequest() {
         <div className="subject-section">
             <div className='dashboard-section'>
 
-            <div class="card">
-            <div class="card-body ">
+            <div className="card">
+            <div className="card-body ">
             <h1 className='text-xl text-center'>Attendance</h1>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateCalendar
@@ -155,9 +155,9 @@ export default function DateCalendarServerRequest() {
             </div>
             </div> 
 
-            <div class="card"><br/>
+            <div className="card"><br/>
             <h1 className='text-xl text-center'>Codekata</h1>
-            <div class="card-body codekata-card-section">
+            <div className="card-body codekata-card-section">
             
         
           <ResponsiveContainer width="50%" height="65%">
@@ -184,9 +184,9 @@ export default function DateCalendarServerRequest() {
             </div>
             </div> 
 
-            <div class="card"><br/>
+            <div className="card"><br/>
             <h1 className='text-xl text-center'>Webkata</h1>
-            <div class="card-body webkata-card-section">
+            <div className="card-body webkata-card-section">
             
             <ResponsiveContainer width="50%" height="65%">
         <BarChart
@@ -212,9 +212,9 @@ export default function DateCalendarServerRequest() {
             </div>
             </div> 
 
-            <div class="card"><br/>
+            <div className="card"><br/>
             <h1 className='text-xl text-center'>Tasks</h1>
-            <div class="card-body task-card-section">
+            <div className="card-body task-card-section">
             
             <ResponsiveContainer width="50%" height="65%">
         <BarChart

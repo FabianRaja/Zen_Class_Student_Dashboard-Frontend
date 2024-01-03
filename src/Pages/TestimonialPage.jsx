@@ -6,15 +6,15 @@ export default function TestimonialPage(){
     const {setHeading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Testimonial");
-    })
-    
+    },[])
+    const userDetails=JSON.parse(localStorage.getItem("data"));
     return(
         <MainSpace>
             <div className="subject-section">
-             <h5 class="card-title justify-content-center">Number of Testimonial Submitted - 2</h5>
+             <h5 className="card-title justify-content-center">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>
              <br/>
-                <div class="card">
-                <div class="card-body  card-section">
+                <div className="card">
+                <div className="card-body  card-section">
                 <form className="testimonial-submission-form">
                 <label >Upload Photo</label>
                 <input type="file" placeholder="Click to upload the photo" className="input input-bordered w-full max-w-xs file-section" />

@@ -22,6 +22,7 @@ import CertificatePage from "./Pages/CertificatePage"
 import TestimonialPage from "./Pages/TestimonialPage"
 import SyllabusPage from "./Pages/Syllabus"
 import PlacementBoardPage from "./Pages/PlacementBoardPage"
+import RegisterPage from "./Pages/RegisterPage"
 
 function App() {
 // let navigate=useNavigate();
@@ -33,6 +34,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<LoginPage/>}/>
+      <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/forgot" element={<ForgotPasswordPage/>}/>
       <Route path="/reset/:id" element={<EmailResetPage/>}/>
       <Route path="/home" element={<HomePage/>}/>

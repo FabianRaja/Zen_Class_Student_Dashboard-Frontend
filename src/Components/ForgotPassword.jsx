@@ -11,7 +11,6 @@ export default function ForgotPassword(){
     },[])
     function handleForgot(){
         const data={email};
-        console.log(data);
         forgotUser(data).then((result)=>{
                 setMsg(result.message);
         }).catch((error)=>console.log(error))
