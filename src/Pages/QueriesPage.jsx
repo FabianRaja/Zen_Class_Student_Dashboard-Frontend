@@ -22,6 +22,7 @@ export default function QueriesPage(){
 
     function handleSubmit(){
         const data={
+            email:userDetails.email,
             id:userDetails._id,
             category,
             subCategory,

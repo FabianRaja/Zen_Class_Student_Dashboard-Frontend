@@ -16,6 +16,7 @@ export default function TestimonialPage(){
 
     function handleSubmit(){
         const data={
+            email:userDetails.email,
             id:userDetails._id,
             photo:test1,
             video:test2,

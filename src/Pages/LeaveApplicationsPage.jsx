@@ -18,6 +18,7 @@ export default function LeaveApplicationsPage(){
     function handleSubmit(){
         const data={
             id:userDetails._id,
+            email:userDetails.email,
             from,
             to,
             reason,

@@ -19,6 +19,7 @@ export default function TaskSubmissionPage(){
     },[])
     function handleSubmit(){
         const data={
+            email:userDetails.email,
             id:userDetails._id,
             title:taskTitle,
             frontend:front,
