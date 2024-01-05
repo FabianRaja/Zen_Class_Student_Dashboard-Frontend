@@ -24,7 +24,7 @@ export default function HomePage(){
                             <div className="hero-content text-center">
                             <div className="max-w-md">
                             <h1 className="text-xl">{currentData.heading?currentData.heading:"No contents Available"}</h1>
-                            <h3 className="text-xl">{currentData.details?currentData.details:"Switch roadmaps to view contents"}</h3><br/>
+                            <h3 className="text-xl">{currentData.details?currentData.details:"Switch between roadmaps to view contents"}</h3><br/>
                             <hr/><br/>
                             <h1 className="text-xl">{currentData?"Contents":""}</h1>
                             <h3 className="text-l">{currentData.content1?currentData.content1:""}</h3>

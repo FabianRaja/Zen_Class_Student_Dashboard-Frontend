@@ -2,29 +2,41 @@ import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 import { leaveSubmission } from "../Helpers/helper";
+import { useFormik } from "formik";
+import { leaveSchema } from "../Helpers/Schema";
 
 export default function LeaveApplicationsPage(){
-    const {msg,setMsg,setHeading,from,setFrom,to,setTo,reason,setReason}=useContext(AppCtx);
+    const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Leave Applications");
-        setFrom(""),
-        setTo(""),
-        setReason(""),
         setMsg("")
     },[])
     
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
-    function handleSubmit(){
-        const data={
-            id:userDetails._id,
-            email:userDetails.email,
-            from,
-            to,
-            reason,
+    const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
+        initialValues:{
+            from:"",
+            to:"",
+            reason:""
+        },
+        validationSchema:leaveSchema,
+        onSubmit:(obj)=>{
+            setLoading(true);
+            const data={
+                id:userDetails._id,
+                email:userDetails.email,
+                from:values.from,
+                to:values.to,
+                reason:values.reason,
+            }
+            leaveSubmission(data).then((result)=>{
+                setLoading(false);
+                setMsg(result.message)}).catch((err)=>{
+                    setLoading(false)
+                    setMsg(result.message)});
         }
-        leaveSubmission(data).then((result)=>setMsg(result.message)).catch((err)=>setMsg(result.message));
-    }
+    })
     return(
         <MainSpace>
              <div className="subject-section">
@@ -32,16 +44,19 @@ export default function LeaveApplicationsPage(){
              <br/>
                 <div className="card">
                 <div className="card-body">
-                <form className="leave-application-submission-form" onSubmit={(event)=>event.preventDefault()}>
+                <form className="leave-application-submission-form" onSubmit={handleSubmit}>
                 <label >From</label>
-                <input type="date" placeholder="Type here" value={from} onChange={(event)=>setFrom(event.target.value)} className="input input-bordered w-full max-w-xs" />
+                <input type="date" placeholder="Type here" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange} className="input input-bordered w-full max-w-xs" />
+                {touched.from && errors.from?(<div className="text-error">{errors.from}</div>):""}
                 <label >To</label>
-                <input type="date" placeholder="Type here"  value={to} onChange={(event)=>setTo(event.target.value)} className="input input-bordered w-full max-w-xs" />  
+                <input type="date" placeholder="Type here" name="to" onBlur={handleBlur}  value={values.to} onChange={handleChange} className="input input-bordered w-full max-w-xs" />  
+                {touched.to && errors.to?(<div className="text-error">{errors.to}</div>):""}
                 <label >Reason</label>
-                <input type="text" placeholder="Reason"  value={reason} onChange={(event)=>setReason(event.target.value)} className="input input-bordered w-full max-w-xs" />    
+                <input type="text" placeholder="Reason" name="reason" onBlur={handleBlur}  value={values.reason} onChange={handleChange} className="input input-bordered w-full max-w-xs" />    
+                {touched.reason && errors.reason?(<div className="text-error">{errors.reason}</div>):""}
                 <label >Confirm the dates and submit the application</label>
-                <button className="btn btn-active btn-neutral" onClick={()=>handleSubmit()}>Submit</button>
-                <h1>{msg?msg:""}</h1>
+                <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit"}</button>
+                <h3 className="text-heading"><b>{msg?msg:""}</b></h3>
                 </form>
                 </div>
                 </div>

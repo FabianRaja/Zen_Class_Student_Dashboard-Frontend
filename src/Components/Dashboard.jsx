@@ -53,7 +53,7 @@ function ServerDay(props) {
 export default function DateCalendarServerRequest() {
     const requestAbortController = React.useRef(null);
     const [isLoading, setIsLoading] = React.useState(false);
-    const [highlightedDays, setHighlightedDays] = React.useState(userDetails.dashboard.attendance);
+    const [highlightedDays, setHighlightedDays] = React.useState(userDetails?.dashboard?.attendance);
   
     const fetchHighlightedDays = (date) => {
       const controller = new AbortController();
@@ -76,6 +76,7 @@ export default function DateCalendarServerRequest() {
   
     React.useEffect(() => {
       fetchHighlightedDays(initialValue);
+
       // abort request on unmount
       return () => requestAbortController.current?.abort();
     }, []);
@@ -95,40 +96,40 @@ export default function DateCalendarServerRequest() {
     const task = [
       {
         name: 'MON',
-        Completed: 1,
-      },
+        Completed: userDetails?.dashboard?.task[0],
+      }, 
       {
         name: 'TUE',
   
-        Completed: 2,
+        Completed:userDetails?.dashboard?.task[1],
        
       },
       {
         name: 'WED',
      
-        Completed: 4,
+        Completed:userDetails?.dashboard?.task[2],
         
       },
       {
         name: 'THU',
        
-        Completed: 2,
+        Completed:userDetails?.dashboard?.task[3],
        
       },
       {
         name: 'FRI',
      
-        Completed: 3,
+        Completed:userDetails?.dashboard?.task[4],
         
       },
       {
         name: 'SAT',
-        Completed: 1,
+        Completed: userDetails?.dashboard?.task[5],
        
       },
       {
         name: 'SUN',
-        Completed: 3,
+        Completed: userDetails?.dashboard?.task[6],
         
       },
     ];
@@ -136,80 +137,80 @@ export default function DateCalendarServerRequest() {
     const codekata = [
         {
           name: 'MON',
-          Completed: userDetails.dashboard.codekata[0],
+          Completed: userDetails?.dashboard?.codekata[0],
         },
         {
           name: 'TUE',
     
-          Completed: userDetails.dashboard.codekata[1],
+          Completed: userDetails?.dashboard?.codekata[1],
          
         },
         {
           name: 'WED',
        
-          Completed: userDetails.dashboard.codekata[2],
+          Completed: userDetails?.dashboard?.codekata[2],
           
         },
         {
           name: 'THU',
          
-          Completed: userDetails.dashboard.codekata[3],
+          Completed: userDetails?.dashboard?.codekata[3],
          
         },
         {
           name: 'FRI',
        
-          Completed: userDetails.dashboard.codekata[4],
+          Completed: userDetails?.dashboard?.codekata[4],
           
         },
         {
           name: 'SAT',
-          Completed: userDetails.dashboard.codekata[5],
+          Completed: userDetails?.dashboard?.codekata[5],
          
         },
         {
           name: 'SUN',
-          Completed: userDetails.dashboard.codekata[6],
+          Completed: userDetails?.dashboard?.codekata[6],
           
         },
       ];
       const webkata = [
         {
           name: 'MON',
-          Completed: userDetails.dashboard.webkata[0],
+          Completed: userDetails?.dashboard?.webkata[0],
         },
         {
           name: 'TUE',
     
-          Completed: userDetails.dashboard.webkata[1],
+          Completed: userDetails?.dashboard?.webkata[1],
          
         },
         {
           name: 'WED',
        
-          Completed: userDetails.dashboard.webkata[2],
+          Completed: userDetails?.dashboard?.webkata[2],
           
         },
         {
           name: 'THU',
          
-          Completed: userDetails.dashboard.webkata[3],
+          Completed: userDetails?.dashboard?.webkata[3],
          
         },
         {
           name: 'FRI',
        
-          Completed: userDetails.dashboard.webkata[4],
+          Completed: userDetails?.dashboard?.webkata[4],
           
         },
         {
           name: 'SAT',
-          Completed: userDetails.dashboard.webkata[5],
+          Completed: userDetails?.dashboard?.webkata[5],
          
         },
         {
           name: 'SUN',
-          Completed: userDetails.dashboard.webkata[6],
+          Completed: userDetails?.dashboard?.webkata[6],
           
         },
       ];

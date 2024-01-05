@@ -2,28 +2,41 @@ import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 import { testimonialSubmission } from "../Helpers/helper";
+import { useFormik } from "formik";
+import { testimonialSchema } from "../Helpers/Schema";
 
 export default function TestimonialPage(){
-    const {msg,setMsg,setHeading,test1,test2,test3,setTest1,setTest2,setTest3}=useContext(AppCtx);
+    const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
+
+    const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
+        initialValues:{
+            test1:"",
+            test2:"",
+            test3:""
+        },
+        validationSchema:testimonialSchema,
+        onSubmit:(obj)=>{
+            setLoading(true);
+            const data={
+                email:userDetails.email,
+                id:userDetails._id,
+                photo:values.test1,
+                video:values.test2,
+                description:values.test3
+            }
+            testimonialSubmission(data).then((result)=>{
+                setLoading(false);
+                setMsg(result.message)}).catch((err)=>{
+                    setLoading(false)
+                    setMsg(result.message)});
+        }
+    })
     useEffect(()=>{
         setHeading("Testimonial");
-        setTest1("");
-        setTest2("");
-        setTest3("");
         setMsg("");
     },[])
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
-    function handleSubmit(){
-        const data={
-            email:userDetails.email,
-            id:userDetails._id,
-            photo:test1,
-            video:test2,
-            description:test3
-        }
-        testimonialSubmission(data).then((result)=>setMsg(result.message)).catch((err)=>setMsg(result.message));
-    }
     return(
         <MainSpace>
             <div className="subject-section">
@@ -31,15 +44,18 @@ export default function TestimonialPage(){
              <br/>
                 <div className="card">
                 <div className="card-body  card-section">
-                <form className="testimonial-submission-form" onSubmit={(event)=>event.preventDefault()}>
-                <label >Upload Photo</label>
-                <input type="url" value={test1} onChange={(event)=>setTest1(event.target.value)} placeholder="Photo URL" className="input input-bordered w-full max-w-xs" />
+                <form className="testimonial-submission-form" onSubmit={handleSubmit}>
+                <label >Photo</label>
+                <input type="url" value={values.test1} name="test1" onChange={handleChange} onBlur={handleBlur} placeholder="Photo URL" className="input input-bordered w-full max-w-xs" />
+                {touched.test1 && errors.test1?(<div className="text-error">{errors.test1}</div>):""}
                 <label >Video</label>
-                <input type="url" value={test2} onChange={(event)=>setTest2(event.target.value)} placeholder="Video URL" className="input input-bordered w-full max-w-xs" />  
+                <input type="url" value={values.test2} name="test2" onChange={handleChange} onBlur={handleBlur} placeholder="Video URL" className="input input-bordered w-full max-w-xs" />  
+                {touched.test2 && errors.test2?(<div className="text-error">{errors.test2}</div>):""}
                 <label >Description</label>
-                <input type="text" value={test3} onChange={(event)=>setTest3(event.target.value)} placeholder="Enter the description" className="input input-bordered w-full max-w-xs" />    
-                <button className="btn btn-active btn-neutral" onClick={()=>handleSubmit()}>Submit</button>
-                <h1 className="text-3xl">{msg?msg:""}</h1>
+                <input type="text" value={values.test3} name="test3" onChange={handleChange} onBlur={handleBlur} placeholder="Enter the description" className="input input-bordered w-full max-w-xs" />    
+                {touched.test3 && errors.test3?(<div className="text-error">{errors.test3}</div>):""}
+                <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit"}</button>
+                <h3 className="text-heading"><b>{msg?msg:""}</b></h3>
                 </form>
                 </div>
                 </div>

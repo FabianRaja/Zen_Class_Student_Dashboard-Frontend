@@ -2,10 +2,12 @@ import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 import { capstoneSubmission } from "../Helpers/helper";
+import { useFormik } from "formik";
+import { capstoneSchema } from "../Helpers/Schema";
 
 
 export default function CapstonePage(){
-    const {msg,setMsg,setHeading,capstone1,setCapstone1,capstone2,setCapstone2,capstone3,setCapstone3,capstone4,setCapstone4,capstone5,setCapstone5}=useContext(AppCtx);
+    const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Capstone");
         setMsg("");
@@ -13,18 +15,34 @@ export default function CapstonePage(){
     
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
-    function handleSubmit(){
-        const data={
-            id:userDetails._id,
-            frontendCode:capstone1,
-            backendCode:capstone2,
-            frontendUrl:capstone3,
-            backendUrl:capstone4,
-            comments:capstone5
+    const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
+        initialValues:{
+            frontendCode:"",
+            backendCode:"",
+            frontendUrl:"",
+            backendUrl:"",
+            comments:"",
+        },
+        validationSchema:capstoneSchema,
+        onSubmit:(obj)=>{
+            setLoading(true);
+            const data={
+                id:userDetails._id,
+                frontendCode:values.frontendCode,
+                backendCode:values.backendCode,
+                frontendUrl:values.frontendUrl,
+                backendUrl:values.backendUrl,
+                comments:values.comments
+            }
+            capstoneSubmission(data).then((result)=>{
+                setLoading(false);
+                setMsg(result.message)
+            }).catch((err)=>{
+                setLoading(false)
+                setMsg(result.message)});
         }
-        console.log(data);
-        capstoneSubmission(data).then((result)=>setMsg(result.message)).catch((err)=>setMsg(result.message));
-    }
+    })
+
     return(
         <MainSpace>
              <div className="subject-section">
@@ -75,17 +93,22 @@ export default function CapstonePage(){
                             </ul>
                             <br/>
                             <h2 className="text-xl text-center">Submission</h2><br/>
-                            {userDetails.capstone.status!="Submitted"?(<form className="capstone-submission-form" onSubmit={(event)=>event.preventDefault()}>
-                            <input value={capstone1} onChange={(event)=>setCapstone1(event.target.value)} type="url" placeholder="Front-end Source code" className="input input-bordered w-full max-w-xs" />
-                            <input value={capstone2} onChange={(event)=>setCapstone2(event.target.value)} type="url" placeholder="Back-end Source code" className="input input-bordered w-full max-w-xs" />
-                            <input value={capstone3} onChange={(event)=>setCapstone3(event.target.value)} type="url" placeholder="Front-end Deployed URL" className="input input-bordered w-full max-w-xs" />
-                            <input value={capstone4} onChange={(event)=>setCapstone4(event.target.value)} type="url" placeholder="Back-end Deployed URL" className="input input-bordered w-full max-w-xs" />
-                            <input value={capstone5} onChange={(event)=>setCapstone5(event.target.value)} type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
-                            <button className="btn btn-active btn-neutral" onClick={()=>handleSubmit()}>Submit</button>
+                            {userDetails.capstone.status!="Submitted"?(<form className="capstone-submission-form" onSubmit={handleSubmit}>
+                            <input name="frontendCode" onBlur={handleBlur} value={values.frontendCode} onChange={handleChange} type="url" placeholder="Front-end Source code" className="input input-bordered w-full max-w-xs" />
+                            {touched.frontendCode && errors.frontendCode?(<div className="text-error">{errors.frontendCode}</div>):""}
+                            <input name="backendCode" onBlur={handleBlur} value={values.backendCode} onChange={handleChange} type="url" placeholder="Back-end Source code" className="input input-bordered w-full max-w-xs" />
+                            {touched.backendCode && errors.backendCode?(<div className="text-error">{errors.backendCode}</div>):""}
+                            <input name="frontendUrl" onBlur={handleBlur} value={values.frontendUrl} onChange={handleChange} type="url" placeholder="Front-end Deployed URL" className="input input-bordered w-full max-w-xs" />
+                            {touched.frontendUrl && errors.frontendUrl?(<div className="text-error">{errors.frontendUrl}</div>):""}
+                            <input name="backendUrl" onBlur={handleBlur} value={values.backendUrl} onChange={handleChange} type="url" placeholder="Back-end Deployed URL" className="input input-bordered w-full max-w-xs" />
+                            {touched.backendUrl && errors.backendUrl?(<div className="text-error">{errors.backendUrl}</div>):""}
+                            <input name="comments" onBlur={handleBlur} value={values.comments} onChange={handleChange} type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
+                            {touched.comments && errors.comments?(<div className="text-error">{errors.comments}</div>):""}
+                            <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit"}</button>
                             </form>):<h2 className="text-xl text-center"><b>Submitted for Review</b></h2>}
                             <br/>
                             <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyond the deadline</h3><br/>
-                            <h3 className="text-3xl text-heading text-center">{msg?msg:""}</h3>
+                            <h3 className="text-heading text-center"><b>{msg?msg:""}</b></h3>
                             </div>
                             </div>
              </div>

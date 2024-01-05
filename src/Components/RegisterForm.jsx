@@ -2,73 +2,68 @@ import { useContext, useEffect } from "react";
 import { AppCtx } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../Helpers/helper";
+import { useFormik } from "formik";
+import { registerSchema } from "../Helpers/Schema";
 
 export default function RegisterForm(){
-    const {username,setUsername,email,setEmail,password,setPassword,msg,setMsg}=useContext(AppCtx);
+    const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
 
     useEffect(()=>{
-     setUsername("")
-     setEmail(""),
-     setPassword(""),
      setMsg("")
     },[])
  
      const navigate=useNavigate();
-     function handleLogin(){
-         const data={
-             email,
-             password
-         }
-         loginUser(data).then((result)=>{
-                 if(result.message==="login successful"){
-                     localStorage.setItem("token",result.token);
-                     navigate("/home")
-                 }else{
-                     setMsg(result.message);
-                 }
-         }).catch((error)=>console.log(error));
-     }
-       
-    function handleRegister(){
-        const data={
-            username,
-            email,
-            password
-        }
-        registerUser(data).then((result)=>{
-            if(result.message==="Registration successfull"){
-                setMsg(result.message);
-                setTimeout(()=>{
-                    navigate("/")
-                },3000)   
-            }else{
-                setMsg(result.message);
+
+     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
+        initialValues:{
+            username:"",
+            email:"",
+            password:""
+        },
+        validationSchema:registerSchema,
+        onSubmit:(obj)=>{
+            const data={
+                username:values.username,
+                email:values.email,
+                password:values.password
             }
-        })
-    }
+            setLoading(true);
+            registerUser(data).then((result)=>{
+                if(result.message==="Registration successfull"){
+                        setLoading(false);
+                        setMsg(result.message);  
+                }else{
+                        setLoading(false);
+                        setMsg(result.message);
+                }
+            }).catch((err)=>{setLoading(false)
+                console.log("error fetching")})
+        }
+    })
+       
     return(
-                <form className="login-email-password-section" onSubmit={(event)=>event.preventDefault()}>
+                <form className="login-email-password-section" onSubmit={handleSubmit}>
                 <a className="login-forgot-button" onClick={()=>navigate("/")}>Already a User?<b>Login</b></a><br/><br/>
                 <div className="form-floating mb-3">
                 <input type="text" className="form-control login-email" id="floatingName" placeholder="User Name"
-                value={username} onChange={(event)=>setUsername(event.target.value)}
+                value={values.username} name="username" onBlur={handleBlur} onChange={handleChange}
                 />
                 <label name="floatingName">UserName</label>
+                {touched.username && errors.username?(<div className="text-error">{errors.username}</div>):""}
                 </div>
                 <div className="form-floating mb-3">
-                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="email" className="form-control" id="floatingInput" name="email" onBlur={handleBlur} placeholder="name@example.com" value={values.email} onChange={handleChange}/>
                 <label name="floatingInput">Email address</label>
+                {touched.email && errors.email?(<div className="text-error">{errors.email}</div>):""}
                 </div>
                 <div className="form-floating mb-3">
-                <input type="password" className="form-control login-email" id="floatingPassword" placeholder="Password"
-                value={password} onChange={(event)=>setPassword(event.target.value)}/>
+                <input type="password" className="form-control login-email" name="password" onBlur={handleBlur} id="floatingPassword" placeholder="Password"
+                value={values.password} onChange={handleChange}/>
                 <label name="floatingPassword">Set Password</label>
+                {touched.password && errors.password?(<div className="text-error">{errors.password}</div>):""}
                 </div>
-                <button type="button" className="btn btn-primary login-button mb-3"
-                onClick={()=>handleRegister()}
-                >Register</button><br/>
-                <b>{msg?msg:""}</b><br/><br/>
-                <b>{msg?"Redirecting to Login Page":""}</b>
+                <button type="submit" className="btn btn-primary login-button mb-3">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Register"}</button><br/>
+                <h3 className="text-heading"><b>{msg?msg:""}</b></h3><br/><br/>
                 </form>
    
     )

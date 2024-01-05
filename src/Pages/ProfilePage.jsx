@@ -3,7 +3,7 @@ import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 
 export default function ProfilePage(){
-    const {setHeading,userData}=useContext(AppCtx);
+    const {setHeading}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("My Profile");
     },[])

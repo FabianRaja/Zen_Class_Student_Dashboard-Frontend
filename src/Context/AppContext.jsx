@@ -39,6 +39,8 @@ export default function AppContext({children}){
     const [back1,setBack1]=useState("");
     const [comments,setComments]=useState("");
     const [taskTitle,setTaskTitle]=useState("");
+    const [loading,setLoading]=useState(false);
+
 
 
     useEffect(()=>{
@@ -64,7 +66,8 @@ export default function AppContext({children}){
                 from,setFrom,to,setTo,reason,setReason,
                 test1,test2,test3,setTest1,setTest2,setTest3,
                 category,setCategory,subCategory,setSubCategory,voice,setVoice,title,setTitle,queryDescription,setQueryDescription,queryFrom,setQueryFrom,queryTo,setQueryTo,attachments,setAttachments,
-                front,back,comments,setFront,setBack,setComments,front1,back1,setFront1,setBack1,taskTitle,setTaskTitle
+                front,back,comments,setFront,setBack,setComments,front1,back1,setFront1,setBack1,taskTitle,setTaskTitle,
+                loading,setLoading,
               
 
             }}>{children}</AppCtx.Provider>

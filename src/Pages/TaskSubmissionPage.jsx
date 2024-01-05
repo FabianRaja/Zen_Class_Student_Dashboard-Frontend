@@ -2,41 +2,62 @@ import MainSpace from "../Components/Mainspace";
 import { useContext, useEffect } from "react"
 import { AppCtx } from "../Context/AppContext"
 import { taskSubmission } from "../Helpers/helper";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { taskSchema } from "../Helpers/Schema";
 export default function TaskSubmissionPage(){
 
-      const {msg,setMsg, front,back,comments,setFront,setBack,setComments,front1,back1,setFront1,setBack1,taskTitle,setTaskTitle }=useContext(AppCtx);
+      const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
 
     const userDetails=JSON.parse(localStorage.getItem("data"));
-    
+    const navigate=useNavigate();
     useEffect(()=>{
-       setMsg(""),
-       setFront(""),
-       setBack(""),
-       setFront1(""),
-       setBack1(""),
-       setTaskTitle(""),
-       setComments("")
+       setMsg("")
     },[])
-    function handleSubmit(){
-        const data={
-            email:userDetails.email,
-            id:userDetails._id,
-            title:taskTitle,
-            frontend:front,
-            backend:back,
-            frontendUrl:front1,
-            backendUrl:back1,
-            comment:comments
+
+    const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
+        initialValues:{
+            title:"",
+            frontend:"",
+            backend:"",
+            frontendUrl:"",
+            backendUrl:"",
+            comment:""
+        },
+        validationSchema:taskSchema,
+        onSubmit:(obj)=>{
+            const data={
+                email:userDetails.email,
+                id:userDetails._id,
+                title:values.title,
+                frontend:values.frontend,
+                backend:values.backend,
+                frontendUrl:values.frontendUrl,
+                backendUrl:values.backendUrl,
+                comment:values.comment
+            }
+            setLoading(true);
+            taskSubmission(data).then((result)=>{
+                setLoading(false);
+                setMsg(result.message);
+                if(result.message==="task submitted"){
+                    setTimeout(()=>{
+                        navigate("/task");
+                    },2000)
+                }
+              }
+                ).catch((err)=>{
+                    setLoading(false)
+                    setMsg(result.message)});
         }
-        taskSubmission(data).then((result)=>setMsg(result.message)).catch((err)=>setMsg(result.message));
-    }
+    })
     return(
         <MainSpace>
             <div className="subject-section">
-                <form className="task-submission-form" onSubmit={(event)=>event.preventDefault()}>
+                <form className="task-submission-form" onSubmit={handleSubmit}>
                 
                             <div className="form-floating w-full max-w-xs">
-                            <select className="form-select " id="floatingSelect" value={taskTitle} onChange={(event)=>setTaskTitle(event.target.value)} aria-label="Floating label select example">
+                            <select className="form-select " id="floatingSelect" onBlur={handleBlur} name="title" value={values.title} onChange={handleChange} aria-label="Floating label select example">
                                 <option>--Select Category--</option>
                                 <option>JavaScript Day-1</option>
                                 <option>JavaScript Day-2</option>
@@ -66,21 +87,22 @@ export default function TaskSubmissionPage(){
                                 <option>Nodejs Day-5</option>
                             </select>
                             <label name="floatingSelect">Category</label>
+                            {touched.title && errors.title?(<div className="text-error text-center">{errors.title}</div>):""}
                             </div>
                     
-                    <input type="url" value={front} onChange={(event)=>setFront(event.target.value)} placeholder="Front-end source code" className="input input-bordered w-full max-w-xs testimonial-file" />
-                 
-                    <input type="url" value={back} onChange={(event)=>setBack(event.target.value)} placeholder="Back-end source code" className="input input-bordered w-full max-w-xs" />  
-                   
-                    <input type="url" value={front1} onChange={(event)=>setFront1(event.target.value)} placeholder="Front-end deployed url" className="input input-bordered w-full max-w-xs testimonial-file" />
-                 
-                    <input type="url" value={back1} onChange={(event)=>setBack1(event.target.value)} placeholder="Back-end deployed url" className="input input-bordered w-full max-w-xs" />  
+                    <input type="url" name="frontend" onBlur={handleBlur} value={values.frontend} onChange={handleChange} placeholder="Front-end source code" className="input input-bordered w-full max-w-xs testimonial-file" />
+                    {touched.frontend && errors.frontend?(<div className="text-error">{errors.frontend}</div>):""}
+                    <input type="url" name="backend" onBlur={handleBlur}  value={values.backend} onChange={handleChange} placeholder="Back-end source code" className="input input-bordered w-full max-w-xs" />  
+                    {touched.backend && errors.backend?(<div className="text-error">{errors.backend}</div>):""} 
+                    <input type="url" name="frontendUrl" onBlur={handleBlur}  value={values.frontendUrl} onChange={handleChange} placeholder="Front-end deployed url" className="input input-bordered w-full max-w-xs testimonial-file" />
+                    {touched.frontendUrl && errors.frontendUrl?(<div className="text-error">{errors.frontendUrl}</div>):""}
+                    <input type="url" name="backendUrl" onBlur={handleBlur}  value={values.backendUrl} onChange={handleChange} placeholder="Back-end deployed url" className="input input-bordered w-full max-w-xs" />  
+                    {touched.backendUrl && errors.backendUrl?(<div className="text-error">{errors.backendUrl}</div>):""}
+                    <input type="text" name="comment" onBlur={handleBlur}  value={values.comment} onChange={handleChange} placeholder="Comments" className="input input-bordered w-full max-w-xs" />    
+                    {touched.comment && errors.comment?(<div className="text-error">{errors.comment}</div>):""}
+                    <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit Task"}</button>
 
-                    <input type="text" value={comments} onChange={(event)=>setComments(event.target.value)} placeholder="Comments" className="input input-bordered w-full max-w-xs" />    
-                    
-                    <button className="btn btn-active btn-neutral" onClick={()=>handleSubmit()}>Submit</button>
-
-                    <div className="text-3xl">{msg?msg:""}</div>
+                    <h3 className="text-heading"><b>{msg?msg:""}</b></h3>
                     </form>
             </div>
         </MainSpace>
