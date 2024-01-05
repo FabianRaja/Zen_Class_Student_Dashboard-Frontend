@@ -38,7 +38,7 @@ export default function PortfolioPage(){
                             </div>
                             </div>
                     </div>
-                    {userDetails.portfolio.status!="submitted" && msg==="portfolio submitted successfully"?
+                    {userDetails.portfolio.status!="submitted"?
                     (
                         <div className="col-6 ">
                             <div className="hero portfolio-section-2">

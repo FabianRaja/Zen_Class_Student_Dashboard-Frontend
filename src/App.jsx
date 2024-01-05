@@ -23,6 +23,7 @@ import TestimonialPage from "./Pages/TestimonialPage"
 import SyllabusPage from "./Pages/Syllabus"
 import PlacementBoardPage from "./Pages/PlacementBoardPage"
 import RegisterPage from "./Pages/RegisterPage"
+import TaskSubmissionPage from "./Pages/TaskSubmissionPage"
 
 function App() {
 // let navigate=useNavigate();
@@ -52,6 +53,7 @@ function App() {
       <Route path="/testimonial" element={<TestimonialPage/>}/>
       <Route path="/syllabus" element={<SyllabusPage/>}/>
       <Route path="/placement" element={<PlacementBoardPage/>}/>
+      <Route path="/taskSubmit" element={<TaskSubmissionPage/>}/>
      
     </Routes>
   )

@@ -10,9 +10,9 @@ export default function TopBar(){
         localStorage.removeItem("data");
         navigate("/");
     }
-    const {heading,userData,setUserData}=useContext(AppCtx);
+    const {heading}=useContext(AppCtx);
     const userDetails=JSON.parse(localStorage.getItem("data"))
-    console.log(userDetails)
+
 
     
     return(
@@ -20,7 +20,8 @@ export default function TopBar(){
                    
                    <div className="navbar top-bar">
                     <div className="flex-1">
-                        <a className="text-xl text-heading"><b>{heading}</b></a>
+                        <a className="text-3xl text-heading"><b>{heading}</b></a>
+                        <a className="text-xl text-heading ml-96" onClick={()=>navigate("/taskSubmit")}><b>{heading==="tasks"?"Submit Task":""}</b></a>
                     </div>
                     <div className="flex-none">
                         <div className="dropdown dropdown-end">

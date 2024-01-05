@@ -8,7 +8,7 @@ export default function CapstonePage(){
     const {msg,setMsg,setHeading,capstone1,setCapstone1,capstone2,setCapstone2,capstone3,setCapstone3,capstone4,setCapstone4,capstone5,setCapstone5}=useContext(AppCtx);
     useEffect(()=>{
         setHeading("Capstone");
-        setMsg("")
+        setMsg("");
     },[])
     
     const userDetails=JSON.parse(localStorage.getItem("data"));
@@ -75,7 +75,7 @@ export default function CapstonePage(){
                             </ul>
                             <br/>
                             <h2 className="text-xl text-center">Submission</h2><br/>
-                            {userDetails.capstone.status!="Submitted" && msg!="capstone submitted successfully"?(<form className="capstone-submission-form" onSubmit={(event)=>event.preventDefault()}>
+                            {userDetails.capstone.status!="Submitted"?(<form className="capstone-submission-form" onSubmit={(event)=>event.preventDefault()}>
                             <input value={capstone1} onChange={(event)=>setCapstone1(event.target.value)} type="url" placeholder="Front-end Source code" className="input input-bordered w-full max-w-xs" />
                             <input value={capstone2} onChange={(event)=>setCapstone2(event.target.value)} type="url" placeholder="Back-end Source code" className="input input-bordered w-full max-w-xs" />
                             <input value={capstone3} onChange={(event)=>setCapstone3(event.target.value)} type="url" placeholder="Front-end Deployed URL" className="input input-bordered w-full max-w-xs" />

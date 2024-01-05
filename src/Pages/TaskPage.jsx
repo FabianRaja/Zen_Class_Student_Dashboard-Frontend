@@ -6,10 +6,10 @@ import Tasks from "../Components/Tasks";
 export default function TaskPage(){
     const {setHeading,classData,task,setTask}=useContext(AppCtx);
     useEffect(()=>{
-        setHeading("Tasks");
+        setHeading("tasks");
         if(classData){
             const data=classData.message?.filter((value,index)=>{
-              return  value.task
+              return value.task
             });
             setTask(data);
         }
@@ -17,7 +17,6 @@ export default function TaskPage(){
 
     return(
         <MainSpace>
-            
          {task && task?.map((value,index)=>(
             <Tasks key={index}
             heading={value.heading}

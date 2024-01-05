@@ -141,3 +141,67 @@ export async function capstoneSubmission(data){
       return error;
    }
 }
+
+export async function leaveSubmission(data){
+   try {
+      const res=await fetch(`${API}/leave`,{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-type":"application/json"
+        }
+      })
+      const result=await res.json();
+      return result;
+   } catch (error) {
+      return error;
+   }
+}
+
+export async function testimonialSubmission(data){
+   try {
+      const res=await fetch(`${API}/testimonial`,{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-type":"application/json"
+        }
+      })
+      const result=await res.json();
+      return result;
+   } catch (error) {
+      return error;
+   }
+}
+
+export async function querySubmission(data){
+   try {
+      const res=await fetch(`${API}/query`,{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-type":"application/json"
+        }
+      })
+      const result=await res.json();
+      return result;
+   } catch (error) {
+      return error;
+   }
+}
+
+export async function taskSubmission(data){
+   try {
+      const res=await fetch(`${API}/task`,{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-type":"application/json"
+        }
+      })
+      const result=await res.json();
+      return result;
+   } catch (error) {
+      return error;
+   }
+}
