@@ -220,7 +220,7 @@ export default function DateCalendarServerRequest() {
           <div className="subject-section">
               <div className='dashboard-section'>
   
-              <div className="card">
+              <div className="card dashboard-card-section">
               <div className="card-body ">
               <h1 className='text-xl text-center'>Attendance</h1>
               <LocalizationProvider dateAdapter={AdapterDayjs}>

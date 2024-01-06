@@ -18,7 +18,7 @@ export default function HomePage(){
     return(
         <MainSpace>
             <div className="subject-section">
-            <div className="row">
+            <div className="row subject-section-flex">
                     <div className="col-7 ">
                             <div className="hero profile-section-1">
                             <div className="hero-content text-center">
@@ -43,9 +43,9 @@ export default function HomePage(){
                             </div>
                     </div>
 
-                    <div className="col-5 ">
-                    <div className="card">
-            <div className="card-body ">
+            <div className="col-5 subject-section-steps">
+            <div className="card">
+            <div className="card-body" >
             <h1 className="text-xl text-center">Session Roadmap</h1>
             <hr/>
             <ul className="steps steps-section">

@@ -5,7 +5,7 @@ import { AppCtx } from "../Context/AppContext";
 export default function InterviewTasksPage(){
     const {setHeading}=useContext(AppCtx);
     useEffect(()=>{
-        setHeading("Interview Task Submissions");
+        setHeading("Interview Task");
     },[])
     
     const userDetails=JSON.parse(localStorage.getItem("data"));

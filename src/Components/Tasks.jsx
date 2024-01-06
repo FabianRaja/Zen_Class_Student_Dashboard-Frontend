@@ -1,6 +1,5 @@
-export default function Tasks({heading,taskLink}){
-
-  
+export default function Tasks({heading,taskLink}){  
+    
     return(
         <div className="subject-section tasks-section">
                

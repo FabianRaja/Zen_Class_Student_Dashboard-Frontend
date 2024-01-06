@@ -116,6 +116,7 @@ export async function forgotUser(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+            "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })
@@ -132,6 +133,7 @@ export async function capstoneSubmission(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+             "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })
@@ -148,6 +150,7 @@ export async function leaveSubmission(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+            "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })
@@ -164,6 +167,7 @@ export async function testimonialSubmission(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+             "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })
@@ -180,6 +184,7 @@ export async function querySubmission(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+            "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })
@@ -196,6 +201,7 @@ export async function taskSubmission(data){
         method:"POST",
         body:JSON.stringify(data),
         headers:{
+            "x-auth-token":data.token,
             "Content-type":"application/json"
         }
       })

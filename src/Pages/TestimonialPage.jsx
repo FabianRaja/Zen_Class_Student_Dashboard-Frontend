@@ -18,6 +18,7 @@ export default function TestimonialPage(){
         onSubmit:(obj)=>{
             setLoading(true);
             const data={
+                token:localStorage.getItem("token"),
                 email:userDetails.email,
                 id:userDetails._id,
                 photo:values.test1,
@@ -40,7 +41,7 @@ export default function TestimonialPage(){
     return(
         <MainSpace>
             <div className="subject-section">
-             <h5 className="card-title justify-content-center">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>
+             <h5 className="card-title justify-content-center text-center">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>
              <br/>
                 <div className="card">
                 <div className="card-body  card-section">

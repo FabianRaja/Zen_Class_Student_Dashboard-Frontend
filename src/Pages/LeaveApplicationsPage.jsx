@@ -24,6 +24,7 @@ export default function LeaveApplicationsPage(){
         onSubmit:(obj)=>{
             setLoading(true);
             const data={
+                token:localStorage.getItem("token"),
                 id:userDetails._id,
                 email:userDetails.email,
                 from:values.from,
@@ -40,7 +41,7 @@ export default function LeaveApplicationsPage(){
     return(
         <MainSpace>
              <div className="subject-section">
-             <h5 className="card-title justify-content-center">Number of Applications Submitted - {userDetails.leaves.count}</h5>
+             <h5 className="card-title justify-content-center text-center">Number of Applications Submitted - {userDetails.leaves.count}</h5>
              <br/>
                 <div className="card">
                 <div className="card-body">

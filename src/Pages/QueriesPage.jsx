@@ -29,6 +29,7 @@ export default function QueriesPage(){
         onSubmit:(obj)=>{
             setLoading(true);
             const data={
+                token:localStorage.getItem("token"),
                 email:userDetails.email,
                 id:userDetails._id,
                 category:values.category,
@@ -83,7 +84,7 @@ export default function QueriesPage(){
                                 <option >Tamil</option>
                                 <option >Hindhi</option>
                             </select>
-                            <label name="floatingSelect">Preferred Voice Communication Language</label>
+                            <label name="floatingSelect">Preferred Voice</label>
                             {touched.voice && errors.voice?(<div className="text-error">{errors.voice}</div>):""}
                             </div>
                             <h1 className="text-xl text-center">Details</h1>

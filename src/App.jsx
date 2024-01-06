@@ -3,10 +3,6 @@ import LoginPage from "./Pages/LoginPage"
 import './App.css'
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage"
 import EmailResetPage from "./Pages/EmailResetPage"
-
-
-
-import { useEffect } from "react"
 import HomePage from "./Pages/HomePage"
 import ProfilePage from "./Pages/ProfilePage"
 import TaskPage from "./Pages/TaskPage"
@@ -26,12 +22,6 @@ import RegisterPage from "./Pages/RegisterPage"
 import TaskSubmissionPage from "./Pages/TaskSubmissionPage"
 
 function App() {
-// let navigate=useNavigate();
-// useEffect(()=>{
-//   if(!localStorage.getItem("token")){
-//     navigate("/",{replace:true});
-//   }
-// },[])
   return (
     <Routes>
       <Route exact path="/" element={<LoginPage/>}/>

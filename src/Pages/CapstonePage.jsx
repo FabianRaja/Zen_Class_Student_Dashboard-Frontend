@@ -27,6 +27,7 @@ export default function CapstonePage(){
         onSubmit:(obj)=>{
             setLoading(true);
             const data={
+                token:localStorage.getItem("token"),
                 id:userDetails._id,
                 frontendCode:values.frontendCode,
                 backendCode:values.backendCode,

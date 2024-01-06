@@ -20,12 +20,14 @@ export default function TopBar(){
                    
                    <div className="navbar top-bar">
                     <div className="flex-1">
-                        <a className="text-3xl text-heading"><b>{heading}</b></a>
-                        <a className="text-xl text-heading ml-96" onClick={()=>navigate("/taskSubmit")}><b>{heading==="tasks"?"Submit Task":""}</b></a>
+                        <a className="text-xl text-heading"><b>{heading}</b></a>
+                    </div>
+                    <div className="flex-1">
+                    <a className="text-xl text-heading " onClick={()=>navigate("/taskSubmit")}><b>{heading==="tasks"?"Submit Task":""}</b></a>
                     </div>
                     <div className="flex-none">
                         <div className="dropdown dropdown-end">
-                        <b className="text-heading">{userDetails.username?userDetails.username:'fab'}</b>
+                        <b className="text-heading">{userDetails.username?userDetails.username:''}</b>
                         </div>
                         <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -33,7 +35,7 @@ export default function TopBar(){
                             <img alt="Tailwind CSS Navbar component" src="src/assets/zen.png" />
                             </div>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral-content rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral-content rounded-box w-32">
                             <li><a className="justify-between" onClick={()=>navigate("/profile")}>Profile</a></li>
                             <li><a onClick={()=>handleLogout()}>Logout</a></li>
                         </ul>

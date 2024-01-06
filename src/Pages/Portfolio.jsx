@@ -23,6 +23,7 @@ export default function PortfolioPage(){
         onSubmit:(obj)=>{
             setLoading(true);
             const data={
+                token:localStorage.getItem("token"),
                 _id:userDetails._id,
                 link:values.portfolio
             }
@@ -78,7 +79,7 @@ export default function PortfolioPage(){
                             </div>
                             </div>
                     </div>
-                    ):<h1 className="col-6 text-center text-4xl mt-40"><b>Submitted for Review</b></h1>
+                    ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12"><b>Submitted for Review</b></h1>
                     }
                     
                 </div>

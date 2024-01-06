@@ -9,6 +9,9 @@ export default {
   },
   theme: {
     extend: {},
+    screens:{
+      "sm":{"min":"200px","max":"469px"},
+    }
   },
   plugins: [require("daisyui")],
 }

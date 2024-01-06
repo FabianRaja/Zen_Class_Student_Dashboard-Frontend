@@ -13,7 +13,7 @@ export default function SyllabusPage(){
              <div className="subject-section">
                 <div className="card">
                 <div className="card-body  syllabus-section">
-                <table className="table">
+                <table className="table syllabus-section-flex">
                     <thead> 
                         <tr>
                         <th scope="col" >Course</th>
