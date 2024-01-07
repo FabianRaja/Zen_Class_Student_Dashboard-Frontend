@@ -1,1 +1,1 @@
-export const API="https://zenportal.onrender.com/"
+export const API="https://zenportal.onrender.com"
