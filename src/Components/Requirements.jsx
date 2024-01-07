@@ -1,5 +1,6 @@
 export default function Requirements({name,ctc,deadline,website,role,nature,opening,program}){
     return(
+        //requirements card component to map using prop values
         <div className="card requirements-section">
             <div className="card-body requirement-section">
                 <div className="row justify-content-start">

@@ -1,16 +1,18 @@
 import { useContext, useEffect } from "react"
-
 import { forgotUser } from "../Helpers/helper";
 import { AppCtx } from "../Context/AppContext";
 import { useFormik } from "formik";
 import { resetSchema } from "../Helpers/Schema";
 
 export default function ForgotPassword(){
+    //importing states from context
     const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
+    //msg values will be empty when the page is loaded
     useEffect(()=>{
         setMsg("")
     },[])
 
+    //using formik with resetSchema as validation schema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             email:"",

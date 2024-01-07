@@ -6,14 +6,16 @@ import { useFormik } from "formik";
 import { querySchema } from "../Helpers/Schema";
 
 export default function QueriesPage(){
+    //importing states from use context
     const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
+    //setting heading value as My Queries and msg value as empty when the page is loaded
     useEffect(()=>{
         setHeading("My Queries");
         setMsg("")
     },[])
-
+   //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
-
+   //using formik with validation schema as querySchema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             category:"",
@@ -49,6 +51,7 @@ export default function QueriesPage(){
         }
     })
     return(
+        //queriesPage component as children for mainspace component
         <MainSpace>
             <div className="subject-section ">
             <form className="query-submission-form" onSubmit={handleSubmit}>

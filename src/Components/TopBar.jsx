@@ -4,17 +4,19 @@ import { AppCtx } from "../Context/AppContext";
 
 
 export default function TopBar(){
+    //useNavigate is used to navigate between pages
     const navigate=useNavigate();
+    //function to remove item from the local storage and navigate page to login page
     function handleLogout(){
         localStorage.removeItem("token");
         localStorage.removeItem("data");
         navigate("/");
     }
+    //importing state from the context
     const {heading}=useContext(AppCtx);
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"))
 
-
-    
     return(
         <div className="topbar">
                    

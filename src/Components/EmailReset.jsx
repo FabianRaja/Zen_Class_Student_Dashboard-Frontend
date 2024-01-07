@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react"
-
 import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../Helpers/helper";
 import { AppCtx } from "../Context/AppContext";
@@ -7,14 +6,19 @@ import { passwordChangeSchema } from "../Helpers/Schema";
 import { useFormik } from "formik";
 
 export default function EmailReset(){
+    //importing states from context
     const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
+    //getting the id from the params
     const params=useParams();
     const id=params.id;
+    //useNavigate is used to navigate between pages
     const navigate=useNavigate();
+    //msg values will be empty while the page is loaded 
     useEffect(()=>{
         setMsg("")
     },[])
 
+    //using formik as validation schema as passwordChangeSchema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             password:"",

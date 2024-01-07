@@ -1,9 +1,7 @@
 export default function Tasks({heading,taskLink}){  
-    
     return(
+        //task component is mapped using prop values
         <div className="subject-section tasks-section">
-               
-            
                <div className="accordion" id="accordionFlushExample">
                 <div className="accordion-item task-section">
                     <h2 className="accordion-header">

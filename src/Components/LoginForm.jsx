@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react"
-
 import { loginUser } from "../Helpers/helper";
 import { useNavigate } from "react-router-dom";
 import { AppCtx } from "../Context/AppContext";
@@ -9,13 +8,16 @@ import { loginSchema } from "../Helpers/Schema";
 
 
 export default function LoginForm(){
+    //importing states from context
     const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
+    //useNavigate is used to navigate between pages
     const navigate=useNavigate();
-    
+    //setting msg values as empty when the page is loaded
    useEffect(()=>{
     setMsg("")
    },[])
 
+   //using formik with validation schema as loginSchema
    const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
     initialValues:{
         email:"",

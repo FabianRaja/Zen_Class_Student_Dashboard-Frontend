@@ -1,21 +1,20 @@
 import { useContext, useEffect } from "react";
 import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
-
-
-
 export default function HomePage(){
+    //importing states from the context
     const {setHeading,classData,currentData,setCurrentData}=useContext(AppCtx);
-    
-   
+    //setting heading value as Class when the page is loaded
     useEffect(()=>{
         setHeading("Class");
+        //if there is class data when the page is loaded, will set the classData
         if(classData){
             setCurrentData(classData?.message[0]);
         }
     },[])
     
     return(
+        //homepage component as children for Mainspace component
         <MainSpace>
             <div className="subject-section">
             <div className="row subject-section-flex">

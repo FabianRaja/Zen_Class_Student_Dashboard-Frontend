@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import LoginPage from "./Pages/LoginPage"
 import './App.css'
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage"
@@ -23,6 +23,7 @@ import TaskSubmissionPage from "./Pages/TaskSubmissionPage"
 
 function App() {
   return (
+    //Routes and Route is imported and used to navigate between pages
     <Routes>
       <Route exact path="/" element={<LoginPage/>}/>
       <Route path="/register" element={<RegisterPage/>}/>

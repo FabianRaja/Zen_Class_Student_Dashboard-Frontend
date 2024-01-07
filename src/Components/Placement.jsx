@@ -1,5 +1,6 @@
 export default function Placement({studentName,branch,companyName,ctc,placedBy}){
     return(
+        //placement card component to map using prop values
         <div className="card placement-section">
             <div className="card-body">
                 <div className="row">

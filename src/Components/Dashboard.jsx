@@ -8,12 +8,14 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import MainSpace from '../Components/Mainspace';
 import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
+//getting date,month,year values and storing
 const date=new Date().getDate();
 const month=new Date().toISOString().slice(5,7);
 const year=new Date().getFullYear();
+//getting data json values from the localstorage
 const userDetails=JSON.parse(localStorage.getItem("data"));
 
-
+//calendar functionality
 function fakeFetch(date, { signal }) {
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
@@ -29,7 +31,7 @@ function fakeFetch(date, { signal }) {
     };
   });
 }
-
+//to set current date in the calendar
 const initialValue = dayjs(`${year}-${month}-${date}`);
 
 function ServerDay(props) {
@@ -49,7 +51,7 @@ function ServerDay(props) {
   );
 }
 
-
+//calender functionality
 export default function DateCalendarServerRequest() {
     const requestAbortController = React.useRef(null);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -93,6 +95,7 @@ export default function DateCalendarServerRequest() {
       fetchHighlightedDays(date);
     };
   
+    //task values as array of objects for a completed week
     const task = [
       {
         name: 'MON',
@@ -134,6 +137,7 @@ export default function DateCalendarServerRequest() {
       },
     ];
   
+    //codekata values as array of objects for a complete week
     const codekata = [
         {
           name: 'MON',
@@ -174,6 +178,7 @@ export default function DateCalendarServerRequest() {
           
         },
       ];
+       //webkata values as array of objects for a complete week
       const webkata = [
         {
           name: 'MON',

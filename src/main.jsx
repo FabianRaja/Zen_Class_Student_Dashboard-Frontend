@@ -4,21 +4,11 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import AppContext from './Context/AppContext.jsx'
-
-
-
-
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-      
-         <BrowserRouter>
+      //BrowserRouter and AppContext is imported
+      <BrowserRouter>
       <AppContext>
       <App />
       </AppContext>
       </BrowserRouter>
-    
-      
- 
-  
 )

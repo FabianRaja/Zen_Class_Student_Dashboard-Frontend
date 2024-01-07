@@ -6,14 +6,17 @@ import { useFormik } from "formik";
 import { registerSchema } from "../Helpers/Schema";
 
 export default function RegisterForm(){
+    //imported states using context
     const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
 
+    //msg values will be empty when the page is loaded
     useEffect(()=>{
      setMsg("")
     },[])
- 
+ //useNavigate is used to navigate between pages
      const navigate=useNavigate();
 
+     //using formkik with validation schema as register schema
      const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             username:"",

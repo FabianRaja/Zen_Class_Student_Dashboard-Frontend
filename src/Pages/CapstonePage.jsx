@@ -7,14 +7,17 @@ import { capstoneSchema } from "../Helpers/Schema";
 
 
 export default function CapstonePage(){
+    //importing states from context
     const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
+    //setting msg value as empty and heading value as Capstone when the page is loaded
     useEffect(()=>{
         setHeading("Capstone");
         setMsg("");
     },[])
-    
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
+    //using formik with validation schema as capstone Schema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             frontendCode:"",
@@ -45,6 +48,7 @@ export default function CapstonePage(){
     })
 
     return(
+        //capstonePage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
              <div className="capstone-section">

@@ -3,14 +3,17 @@ import MainSpace from "../Components/Mainspace";
 import { AppCtx } from "../Context/AppContext";
 
 export default function ProfilePage(){
+    //importing states from the use context
     const {setHeading}=useContext(AppCtx);
+    //setting heading value as My Profile when the page is loaded
     useEffect(()=>{
         setHeading("My Profile");
     },[])
-    
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"))
     
     return(
+        //profilepage component as children for mainspace component
         <MainSpace>
             <div className="subject-section">
             <div className="card">

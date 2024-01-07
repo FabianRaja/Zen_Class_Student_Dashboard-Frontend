@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { API } from "./api";
 
+//function to register user
 export async function registerUser(data){
    try {
       const res=await fetch(`${API}/add`,{
@@ -17,6 +17,7 @@ export async function registerUser(data){
    }
 }
 
+//function to login user
 export async function loginUser(data){
    try {
       const res=await fetch(`${API}/login`,{
@@ -33,6 +34,7 @@ export async function loginUser(data){
    }
 }
 
+//function to send reset password link to a user
 export async function forgotUser(data){
     try {
        const res=await fetch(`${API}/forgot`,{
@@ -49,6 +51,7 @@ export async function forgotUser(data){
     }
  }
 
+ //function to reset password
  export async function resetPassword(id,data){
     try {
        const res=await fetch(`${API}/reset/${id}`,{
@@ -65,6 +68,7 @@ export async function forgotUser(data){
     }
  }
 
+ //function to get class data
  export async function getClassData(){
    try {
       const res=await fetch(`${API}/mern/getClass`,{
@@ -80,6 +84,7 @@ export async function forgotUser(data){
    }
  }
 
+ //function to get requirements data
  export async function getRequirementsData(){
    try {
       const res=await fetch(`${API}/mern/getRequirements`,{
@@ -95,6 +100,7 @@ export async function forgotUser(data){
    }
  } 
 
+ //function to get placements data
  export async function getPlacementsData(){
    try {
       const res=await fetch(`${API}/mern/getPlacement`,{
@@ -110,6 +116,7 @@ export async function forgotUser(data){
    }
  } 
 
+ //function to submit portfolio
  export async function portfolioSubmission(data){
    try {
       const res=await fetch(`${API}/portfolio`,{
@@ -127,6 +134,7 @@ export async function forgotUser(data){
    }
 }
 
+//function to submit capstone
 export async function capstoneSubmission(data){
    try {
       const res=await fetch(`${API}/capstone`,{
@@ -144,6 +152,7 @@ export async function capstoneSubmission(data){
    }
 }
 
+//function to submit leave application
 export async function leaveSubmission(data){
    try {
       const res=await fetch(`${API}/leave`,{
@@ -161,6 +170,7 @@ export async function leaveSubmission(data){
    }
 }
 
+//function to submit testimonial
 export async function testimonialSubmission(data){
    try {
       const res=await fetch(`${API}/testimonial`,{
@@ -178,6 +188,7 @@ export async function testimonialSubmission(data){
    }
 }
 
+//function to submit query
 export async function querySubmission(data){
    try {
       const res=await fetch(`${API}/query`,{
@@ -195,6 +206,7 @@ export async function querySubmission(data){
    }
 }
 
+//function to submit task
 export async function taskSubmission(data){
    try {
       const res=await fetch(`${API}/task`,{

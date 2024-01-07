@@ -6,8 +6,9 @@ import { useFormik } from "formik";
 import { testimonialSchema } from "../Helpers/Schema";
 
 export default function TestimonialPage(){
+    //importing states from the use context
     const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
-
+    //using formik with validation schema as testimonialSchema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             test1:"",
@@ -32,13 +33,16 @@ export default function TestimonialPage(){
                     setMsg(result.message)});
         }
     })
+    //setting heading value as Testimonial and msg values as empty when the page is loaded
     useEffect(()=>{
         setHeading("Testimonial");
         setMsg("");
     },[])
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
     return(
+        //testimonialpage component as children for mainspace component
         <MainSpace>
             <div className="subject-section">
              <h5 className="card-title justify-content-center text-center">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>

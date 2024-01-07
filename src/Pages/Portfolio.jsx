@@ -5,14 +5,17 @@ import { portfolioSubmission } from "../Helpers/helper";
 import { useFormik } from "formik";
 import { portfolioSchema } from "../Helpers/Schema";
 export default function PortfolioPage(){
+    //importing states from use context
     const {setHeading,msg,setMsg,loading,setLoading}=useContext(AppCtx);
+    //setting heading value as Portfolio Submission and msg value as empty when the page is loaded
     useEffect(()=>{
         setHeading("Portfolio Submission");
         setMsg("");
     },[])
-    
+    //getting data from local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
 
+    //using formik with validation schema as portfolio schema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             github:"",
@@ -36,6 +39,7 @@ export default function PortfolioPage(){
     })
 
     return(
+        //portfolio component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
                 <div className="row portfolio-section">

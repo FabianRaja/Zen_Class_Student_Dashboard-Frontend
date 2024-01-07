@@ -6,14 +6,16 @@ import { useFormik } from "formik";
 import { leaveSchema } from "../Helpers/Schema";
 
 export default function LeaveApplicationsPage(){
+    //importing states from the context
     const {msg,setMsg,setHeading,loading,setLoading}=useContext(AppCtx);
+    //setting heading value as Leave Applications and msg value as empty when the page is loaded
     useEffect(()=>{
         setHeading("Leave Applications");
         setMsg("")
     },[])
-    
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
-
+    //using formik with validation schema as leaveSchema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             from:"",
@@ -39,6 +41,7 @@ export default function LeaveApplicationsPage(){
         }
     })
     return(
+        //leaveapplicationpage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
              <h5 className="card-title justify-content-center text-center">Number of Applications Submitted - {userDetails.leaves.count}</h5>

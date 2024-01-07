@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 export default function Base({children}){
+    //useNavigate is used to navigate between pages
     const navigate=useNavigate();
     return(
         <div className="login ">

@@ -1,6 +1,7 @@
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 
+//mainspace used for sidebar and topbar as mandatory in page with children property
 export default function MainSpace({children}){
  
     return(

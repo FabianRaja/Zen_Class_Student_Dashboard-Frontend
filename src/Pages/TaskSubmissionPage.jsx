@@ -6,15 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { taskSchema } from "../Helpers/Schema";
 export default function TaskSubmissionPage(){
-
+     //importing states from the use context
       const {msg,setMsg,loading,setLoading}=useContext(AppCtx);
-
+    //getting data from the local storage
     const userDetails=JSON.parse(localStorage.getItem("data"));
+    //useNavigate is imported and used to navigate between pages
     const navigate=useNavigate();
+    //setting msg value as empty when the page is loaded
     useEffect(()=>{
        setMsg("")
     },[])
-
+//using formik with validation schema as taskSchema
     const {values,handleChange,handleSubmit,handleBlur,errors,touched}=useFormik({
         initialValues:{
             title:"",
@@ -53,6 +55,7 @@ export default function TaskSubmissionPage(){
         }
     })
     return(
+        //tasksubmissionpage component as children for mainspace component
         <MainSpace>
             <div className="subject-section">
                 <form className="task-submission-form" onSubmit={handleSubmit}>
