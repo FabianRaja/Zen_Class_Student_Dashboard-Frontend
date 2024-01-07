@@ -7,7 +7,7 @@
 * Email : demo@gmail.com
 * Password : Demo@123
 
-## Packages Used : 
+## Packages : 
 
 * Material UI
 * Tailwind Css
