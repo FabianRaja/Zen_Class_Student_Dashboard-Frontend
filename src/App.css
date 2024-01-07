@@ -1,7 +1,7 @@
-/* .flex{
+.flex{
     display:flex;
     gap:8px;
-} */
+}
 .home-form-section{
     display:flex;
     justify-content: center;
@@ -51,7 +51,7 @@
     width: 208px;
     overflow-y: scroll;
     overflow-x: hidden;
-    transition: 1.9s;
+    transition: 1.1s;
     z-index: 300;
 }
 .sidebar::-webkit-scrollbar {
@@ -920,15 +920,3 @@
         overflow-y: scroll;
      }
 }
-/* @media screen and (min-width:200px) and (max-width:625px){
-    #topbar-section{
-        display: flex;
-        position: fixed;
-        border-bottom: 2px solid black;
-        width:96%;
-        left:64px;
-        z-index: 200;
-        background-color: whitesmoke;
-        border:2px solid black
-    }
-} */
