@@ -24,8 +24,8 @@ export default function PlacementBoardPage(){
                    placedBy={value.placedBy}
                    />
            ))}  
-                </div>  
-            </div><br/><br/><br/>
+                </div>  <br/><br/><br/><br/><br/><br/>
+            </div><br/><br/><br/><br/><br/><br/>
         </MainSpace>
     )
 }

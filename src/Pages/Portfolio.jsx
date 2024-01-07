@@ -81,11 +81,11 @@ export default function PortfolioPage(){
                             <h3>Note : You Wont be Able to Submit When the Portfolio is under Review or Reviewed</h3>
                             </div>
                             </div>
-                            </div>
+                            </div><br/><br/><br/><br/><br/><br/>
                     </div>
                     ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12"><b>Submitted for Review</b></h1>
                     }
-                    
+                    <br/><br/><br/><br/><br/><br/>
                 </div>
              
              </div><br/><br/><br/>

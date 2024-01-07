@@ -110,9 +110,8 @@ export default function HomePage(){
             </div>
                     </div>
                 </div>
-             
+                <br/><br/><br/><br/><br/><br/>
             </div>
-            <br/><br/><br/>
         </MainSpace>
     )
 }
