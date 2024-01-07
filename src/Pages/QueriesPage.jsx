@@ -107,7 +107,7 @@ export default function QueriesPage(){
                     <h3 className="text-heading"><b>{msg?msg:""}</b></h3>
                     <br/><br/><br/><br/>
             </form>
-           
+            <br/><br/><br/>
             </div>
         </MainSpace>
     )

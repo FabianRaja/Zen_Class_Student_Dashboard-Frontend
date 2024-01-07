@@ -14,7 +14,7 @@ export default function ApplicationsPage(){
     return(
         //using application as children for mainspace component
         <MainSpace>
-            <div className="subject-section"><h1 className="application-section">{userDetails.application?userDetails.application:"Content available after completing Placement preparation"}</h1></div>
+            <div className="subject-section"><h1 className="application-section">{userDetails.application?userDetails.application:"Content available after completing Placement preparation"}</h1></div><br/><br/><br/>
         </MainSpace>
     )
 }

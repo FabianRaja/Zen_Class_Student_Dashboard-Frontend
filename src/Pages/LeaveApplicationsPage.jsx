@@ -64,7 +64,7 @@ export default function LeaveApplicationsPage(){
                 </form>
                 </div>
                 </div>
-                    
+                <br/><br/><br/>
                 </div>
         </MainSpace>
     )

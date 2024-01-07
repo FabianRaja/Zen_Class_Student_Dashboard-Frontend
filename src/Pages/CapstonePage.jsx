@@ -119,7 +119,7 @@ export default function CapstonePage(){
              </div>
              </div>
            
-           
+             <br/><br/><br/>
             </div>
         </MainSpace>
     )

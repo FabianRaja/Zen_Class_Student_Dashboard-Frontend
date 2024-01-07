@@ -25,7 +25,7 @@ export default function PlacementBoardPage(){
                    />
            ))}  
                 </div>  
-            </div>
+            </div><br/><br/><br/>
         </MainSpace>
     )
 }

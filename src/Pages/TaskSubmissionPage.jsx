@@ -107,7 +107,7 @@ export default function TaskSubmissionPage(){
                     <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit Task"}</button>
 
                     <h3 className="text-heading"><b>{msg?msg:""}</b></h3>
-                    </form>
+                    </form><br/><br/><br/>
             </div>
         </MainSpace>
     )
