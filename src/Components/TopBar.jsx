@@ -32,7 +32,7 @@ export default function TopBar(){
                         <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="src/assets/zen.png" />
+                            <img alt="Tailwind CSS Navbar component" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg" />
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral-content rounded-box w-32">
