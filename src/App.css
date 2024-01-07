@@ -1,7 +1,7 @@
-.flex{
+/* .flex{
     display:flex;
     gap:8px;
-}
+} */
 .home-form-section{
     display:flex;
     justify-content: center;
@@ -270,6 +270,19 @@
     .low-heading{
         font-size: smaller !important;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:230px) and (max-width:279px) {
     .subject-section-flex{
@@ -313,6 +326,19 @@
     .syllabus-section{
         width: fit-content;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:280px) and (max-width:329px) {
     .subject-section-flex{
@@ -353,6 +379,19 @@
         overflow: scroll;
         width: max-content;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:330px) and (max-width:369px) {
     .subject-section-flex{
@@ -392,6 +431,19 @@
         border-radius: 15px;
         overflow: scroll;
         width: max-content;
+    }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
     }
 }
 @media screen and (min-width:370px) and (max-width:419px) {
@@ -434,6 +486,19 @@
         overflow: scroll;
         width: max-content;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:420px) and (max-width:469px) {
     .subject-section-flex{
@@ -471,6 +536,19 @@
     .requirement-section{
         width: max-content;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:470px) and (max-width:549px) {
     .subject-section-flex{
@@ -506,6 +584,19 @@
     .requirement-section{
         width: max-content;
     }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
+    }
 }
 @media screen and (min-width:550px) and (max-width:599px) {
     .subject-section-flex{
@@ -538,6 +629,19 @@
     }
     .requirement-section{
         width: max-content;
+    }
+    .login-section{
+        display:flex;
+        flex-direction: column;
+        gap:110px;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-img{
+        display: none;
+    }
+    .zenclass-image-section{
+        margin-left: 12px;
     }
 }
 @media screen and (min-width:600px) and (max-width:679px) {

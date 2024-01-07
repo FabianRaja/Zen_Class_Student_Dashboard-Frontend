@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom"
 export default function Base({children}){
     const navigate=useNavigate();
     return(
-        <div className="login">
+        <div className="login ">
 
-            <div className="flex">
+            <div className="flex login-section">
 
             <div className="flex-none w-40 h-14">
 

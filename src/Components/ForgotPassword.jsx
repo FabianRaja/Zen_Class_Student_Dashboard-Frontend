@@ -35,7 +35,7 @@ export default function ForgotPassword(){
                 <input type="email" className="form-control login-email" id="floatingInput" placeholder="name@example.com"
                 value={values.email} name="email" onBlur={handleBlur} onChange={handleChange}
                 /> 
-                <label name="floatingInput">Registered Email address</label>
+                <label name="floatingInput">Registered Email</label>
                 {touched.email && errors.email?(<div className="text-error">{errors.email}</div>):""}
                 </div>
                 <button type="submit" className="btn btn-primary login-button mb-3">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Send Mail"}</button><br/>
