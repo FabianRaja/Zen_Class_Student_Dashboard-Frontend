@@ -17,7 +17,7 @@ export default function ProfilePage(){
         <MainSpace>
             <div className="subject-section">
             <div className="card">
-            <div className="card-body profile-section text-center skeleton bg-neutral text-base-100">
+            <div className="card-body profile-section text-center">
                 <h1 className="text-3xl low-heading"><b><u>Personal Informations</u></b></h1><hr/>
                 <h5 className="card-title">Name - {userDetails.username}</h5>
                 <h5 className="card-title low-heading">Email - {userDetails.email}</h5>
@@ -25,7 +25,7 @@ export default function ProfilePage(){
             </div>
             </div><br/>
             <div className="card">
-            <div className="card-body profile-section text-center skeleton bg-neutral text-base-100">
+            <div className="card-body profile-section text-center">
                 <h1 className="text-3xl text-center low-heading"><b><u>Class Informations</u></b></h1><hr/>
                 <h5 className="card-title">Number of Days Present : {(userDetails.dashboard.attendance).length}</h5>
                 <h5 className="card-title">Number of Leaves : {userDetails.leaves.count}</h5>

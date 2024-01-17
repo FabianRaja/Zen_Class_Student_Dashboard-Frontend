@@ -51,11 +51,11 @@ export default function CapstonePage(){
         //capstonePage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
-             <div className="capstone-section">
-
-                <div className="card">
-                <div className="card-body text-center">
-                <h1 className="text-5xl text-center text-heading">{userDetails?.username}</h1><br/>
+             <div className="capstone-section text-secondary font-extrabold">
+             <div className="hero ">
+                            <div className="hero-content">
+                            <div className="max-w-4xl">
+                            <h1 className="text-5xl text-center text-heading">{userDetails?.username}</h1><br/>
                             <h3 className="text-center">(B51 WD2 Tamil - Capstone Project)</h3><br/>
                             <h3  className="text-xl text-center">{userDetails.capstone.title?userDetails.capstone.title:"Title not assigned yet"}</h3><br/>
                             <h3  className="text-xl text-center">Description</h3><br/>
@@ -114,9 +114,9 @@ export default function CapstonePage(){
                             <br/>
                             <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyond the deadline</h3><br/>
                             <h3 className="text-heading text-center"><b>{msg?msg:""}</b></h3>
-                </div>
-                </div>
-                
+                            </div>
+                            </div>
+             </div>
              </div>
            
              <br/><br/><br/>

@@ -44,19 +44,19 @@ export default function LeaveApplicationsPage(){
         //leaveapplicationpage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
-             <h5 className="card-title justify-content-center text-center">Number of Applications Submitted - {userDetails.leaves.count}</h5>
+             <h5 className="card-title justify-content-center text-center text-secondary font-extrabold">Number of Applications Submitted - {userDetails.leaves.count}</h5>
              <br/>
                 <div className="card">
                 <div className="card-body">
                 <form className="leave-application-submission-form" onSubmit={handleSubmit}>
                 <label >From</label>
-                <input type="date" placeholder="Type here" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange} className="input input-bordered w-full max-w-xs text-base-300 font-extrabold" />
+                <input type="date" placeholder="Type here" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange} className="input text-center input-bordered w-full max-w-xs text-secondary font-extrabold" />
                 {touched.from && errors.from?(<div className="text-error">{errors.from}</div>):""}
                 <label >To</label>
-                <input type="date" placeholder="Type here" name="to" onBlur={handleBlur}  value={values.to} onChange={handleChange} className="input input-bordered w-full max-w-xs text-base-300 font-extrabold" />  
+                <input type="date" placeholder="Type here" name="to" onBlur={handleBlur}  value={values.to} onChange={handleChange} className="input text-center input-bordered w-full max-w-xs text-secondary font-extrabold" />  
                 {touched.to && errors.to?(<div className="text-error">{errors.to}</div>):""}
                 <label >Reason</label>
-                <input type="text" placeholder="Reason" name="reason" onBlur={handleBlur}  value={values.reason} onChange={handleChange} className="input input-bordered w-full max-w-xs" />    
+                <input type="text" placeholder="Reason" name="reason" onBlur={handleBlur}  value={values.reason} onChange={handleChange} className="input text-center input-bordered w-full max-w-xs text-secondary font-extrabold" />    
                 {touched.reason && errors.reason?(<div className="text-error">{errors.reason}</div>):""}
                 <label >Confirm the dates and submit the application</label>
                 <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit"}</button>

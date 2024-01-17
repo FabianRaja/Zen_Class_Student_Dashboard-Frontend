@@ -45,7 +45,7 @@ export default function TestimonialPage(){
         //testimonialpage component as children for mainspace component
         <MainSpace>
             <div className="subject-section">
-             <h5 className="card-title justify-content-center text-center">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>
+             <h5 className="card-title justify-content-center text-center text-secondary font-extrabold">Number of Testimonial Submitted - {userDetails.testimonial.count}</h5>
              <br/>
                 <div className="card">
                 <div className="card-body  card-section">
