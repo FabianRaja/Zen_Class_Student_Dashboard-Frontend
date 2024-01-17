@@ -18,11 +18,10 @@ export default function HomePage(){
         <MainSpace>
             <div className="subject-section">
             <div className="row subject-section-flex ">
-                    <div className="col-7 skeleton mb-2 bg-neutral text-base-100">
-                            <div className="hero profile-section-1">
-                            <div className="hero-content text-center">
-                            <div className="max-w-md">
-                            <h1 className="text-xl">{currentData.heading?currentData.heading:"No contents Available"}</h1>
+                    <div className="col-7 mb-2">
+                        <div className="card">
+                         <div className="card-body text-center">
+                         <h1 className="text-xl">{currentData.heading?currentData.heading:"No contents Available"}</h1>
                             <h3 className="text-xl">{currentData.details?currentData.details:"Switch between roadmaps to view contents"}</h3><br/>
                             <hr/><br/>
                             <h1 className="text-xl">{currentData?"Contents":""}</h1>
@@ -36,10 +35,8 @@ export default function HomePage(){
                             <h1 className="text-xl">{currentData.read1?"Pre-read":""}</h1>
                             <p className="text-l">{currentData.read1?currentData.read1:""}</p>
                             <p className="text-l">{currentData.read2?currentData.read2:""}</p>
-                            <br/>
-                            </div>
-                            </div>
-                            </div>
+                        </div>
+                        </div>
                     </div>
 
             <div className="col-5 subject-section-steps">

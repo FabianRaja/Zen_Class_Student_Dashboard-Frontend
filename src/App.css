@@ -85,7 +85,6 @@
 .profile-section{
     display:flex;
     align-items: center;
-    background-color: whitesmoke;
     border-radius: 15px;
 }
 .profile-section-1{
@@ -572,9 +571,6 @@
         flex-direction: column;
         align-items: center;
     }
-    .portfolio-section-2{
-        margin-left: 20px;
-    }
     .placement-section{
         margin-left: 10px;
         width: 400px;
@@ -632,9 +628,6 @@
         display:flex;
         flex-direction: column;
         align-items: center;
-    }
-    .portfolio-section-2{
-        margin-left: 20px;
     }
     .placement-section{
         margin-left: 10px;

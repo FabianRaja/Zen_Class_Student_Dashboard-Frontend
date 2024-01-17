@@ -54,7 +54,9 @@ export default function QueriesPage(){
         //queriesPage component as children for mainspace component
         <MainSpace>
             <div className="subject-section ">
-            <form className="query-submission-form skeleton bg-neutral text-base-100" onSubmit={handleSubmit}>
+            <div className="card">
+            <div className="card-body text-center">
+            <form className="query-submission-form" onSubmit={handleSubmit}>
                            <h1 className="text-xl text-center">Topic</h1>
                              <div className="form-floating w-full max-w-xs">
                             <select className="form-select " id="floatingSelect" name="category" onBlur={handleBlur} value={values.category} onChange={handleChange} aria-label="Floating label select example">
@@ -108,6 +110,8 @@ export default function QueriesPage(){
                     <br/><br/><br/><br/>
             </form>
             <br/><br/><br/>
+            </div>
+            </div>
             </div>
         </MainSpace>
     )
