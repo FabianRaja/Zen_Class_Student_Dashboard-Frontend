@@ -50,10 +50,10 @@ export default function LeaveApplicationsPage(){
                 <div className="card-body">
                 <form className="leave-application-submission-form" onSubmit={handleSubmit}>
                 <label >From</label>
-                <input type="date" placeholder="Type here" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange} className="input input-bordered w-full max-w-xs" />
+                <input type="date" placeholder="Type here" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange} className="input input-bordered w-full max-w-xs text-base-300 font-extrabold" />
                 {touched.from && errors.from?(<div className="text-error">{errors.from}</div>):""}
                 <label >To</label>
-                <input type="date" placeholder="Type here" name="to" onBlur={handleBlur}  value={values.to} onChange={handleChange} className="input input-bordered w-full max-w-xs" />  
+                <input type="date" placeholder="Type here" name="to" onBlur={handleBlur}  value={values.to} onChange={handleChange} className="input input-bordered w-full max-w-xs text-base-300 font-extrabold" />  
                 {touched.to && errors.to?(<div className="text-error">{errors.to}</div>):""}
                 <label >Reason</label>
                 <input type="text" placeholder="Reason" name="reason" onBlur={handleBlur}  value={values.reason} onChange={handleChange} className="input input-bordered w-full max-w-xs" />    

@@ -15,7 +15,7 @@ export default function InterviewTasksPage(){
     return(
         //interviewtaskpage component as children for mainspace component
         <MainSpace>
-              <div className="subject-section"><h1 className="interview-task-section">{userDetails.interview?userDetails.interview:"Content available after completing Placement preparation"}</h1></div>
+              <div className="subject-section"><h1 className="interview-task-section text-base-300 font-extrabold">{userDetails.interview?userDetails.interview:"Content available after completing Placement preparation"}</h1></div>
         </MainSpace>
     )
 }

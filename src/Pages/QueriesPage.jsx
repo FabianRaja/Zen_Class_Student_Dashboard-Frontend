@@ -54,7 +54,7 @@ export default function QueriesPage(){
         //queriesPage component as children for mainspace component
         <MainSpace>
             <div className="subject-section ">
-            <form className="query-submission-form" onSubmit={handleSubmit}>
+            <form className="query-submission-form skeleton bg-neutral text-base-100" onSubmit={handleSubmit}>
                            <h1 className="text-xl text-center">Topic</h1>
                              <div className="form-floating w-full max-w-xs">
                             <select className="form-select " id="floatingSelect" name="category" onBlur={handleBlur} value={values.category} onChange={handleChange} aria-label="Floating label select example">
@@ -96,9 +96,9 @@ export default function QueriesPage(){
                     <input type="text" placeholder="Query Description" name="queryDescription" onBlur={handleBlur} value={values.queryDescription} onChange={handleChange} className="input input-bordered w-full max-w-xs  text-center" />    
                     {touched.queryDescription && errors.queryDescription?(<div className="text-error">{errors.queryDescription}</div>):""}
                     <h1 className="text-xl text-center">Your available Time? (Ours: 9.00 AM - 7.00 PM)</h1>
-                    <input type="time" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange}  className="input input-bordered w-full max-w-xs  text-center" />  
+                    <input type="time" name="from" onBlur={handleBlur} value={values.from} onChange={handleChange}  className="input input-bordered w-full max-w-xs text-neutral  text-center" />  
                     {touched.from && errors.from?(<div className="text-error">{errors.from}</div>):""}
-                    <input type="time" name="to" onBlur={handleBlur} value={values.to} onChange={handleChange}  className="input input-bordered w-full max-w-xs  text-center" />  
+                    <input type="time" name="to" onBlur={handleBlur} value={values.to} onChange={handleChange}  className="input input-bordered w-full max-w-xs text-neutral  text-center" />  
                     {touched.to && errors.to?(<div className="text-error">{errors.to}</div>):""}
                     <h1 className="text-xl text-center">Attachments</h1>
                     <input type="url" name="file" onBlur={handleBlur} value={values.file} onChange={handleChange} placeholder="Photo URL" className="input input-bordered w-full max-w-xs text-center" /> 

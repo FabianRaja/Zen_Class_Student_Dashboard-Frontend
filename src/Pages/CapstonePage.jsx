@@ -51,7 +51,7 @@ export default function CapstonePage(){
         //capstonePage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
-             <div className="capstone-section">
+             <div className="capstone-section skeleton bg-neutral text-base-100">
              <div className="hero ">
                             <div className="hero-content">
                             <div className="max-w-4xl">

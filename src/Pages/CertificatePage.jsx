@@ -14,7 +14,7 @@ export default function CertificatePage(){
     return(
         //certificatePage as children for mainspace component
         <MainSpace>
-             <div className="subject-section"><h1 className="certificate-section">{userDetails.certificate?userDetails.certificate:"Your Certificate is not yet Generated"}</h1></div>
+             <div className="subject-section"><h1 className="certificate-section text-base-300 font-extrabold">{userDetails.certificate?userDetails.certificate:"Your Certificate is not yet Generated"}</h1></div>
              <br/><br/><br/>
         </MainSpace>
     )

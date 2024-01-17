@@ -43,7 +43,7 @@ export default function PortfolioPage(){
         <MainSpace>
              <div className="subject-section">
                 <div className="row portfolio-section">
-                    <div className="col-6 ">
+                    <div className="col-6 skeleton bg-neutral text-base-100">
                             <div className="hero portfolio-section-1">
                             <div className="hero-content text-center">
                             <div className="max-w-md">
@@ -61,7 +61,7 @@ export default function PortfolioPage(){
                     </div>
                     {userDetails.portfolio.status!="submitted"?
                     (
-                        <div className="col-6 ">
+                        <div className="col-6 skeleton bg-neutral text-base-100">
                             <div className="hero portfolio-section-2">
                                 
                             <div className="hero-content text-center">
@@ -83,7 +83,7 @@ export default function PortfolioPage(){
                             </div>
                             </div><br/><br/><br/><br/><br/><br/>
                     </div>
-                    ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12"><b>Submitted for Review</b></h1>
+                    ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12 text-base-300 font-extrabold"><b>Submitted for Review</b></h1>
                     }
                     <br/><br/><br/><br/><br/><br/>
                 </div>

@@ -17,8 +17,8 @@ export default function HomePage(){
         //homepage component as children for Mainspace component
         <MainSpace>
             <div className="subject-section">
-            <div className="row subject-section-flex">
-                    <div className="col-7 ">
+            <div className="row subject-section-flex ">
+                    <div className="col-7 skeleton mb-2 bg-neutral text-base-100">
                             <div className="hero profile-section-1">
                             <div className="hero-content text-center">
                             <div className="max-w-md">
