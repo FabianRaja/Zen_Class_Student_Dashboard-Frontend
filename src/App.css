@@ -74,6 +74,7 @@
    height: 100vh;
    right:11px;
    overflow-y: scroll;
+   background-color:white;
 }
 #subject-section::-webkit-scrollbar {
     display:none;
