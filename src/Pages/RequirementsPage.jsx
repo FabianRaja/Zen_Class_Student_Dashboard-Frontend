@@ -8,6 +8,7 @@ const {setHeading,requirements}=useContext(AppCtx);
 //setting heading value as Requirements when the page is loaded
 useEffect(()=>{
     setHeading("Requirements");
+  
 },[])
     return(
         //requirementsPage component as children for Mainspace component

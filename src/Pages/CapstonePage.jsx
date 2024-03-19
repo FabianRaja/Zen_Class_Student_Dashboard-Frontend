@@ -51,7 +51,7 @@ export default function CapstonePage(){
         //capstonePage component as children for mainspace component
         <MainSpace>
              <div className="subject-section">
-             <div className="capstone-section text-secondary font-extrabold">
+             <div className="capstone-section text-neutral">
              <div className="hero ">
                             <div className="hero-content">
                             <div className="max-w-4xl">
@@ -110,7 +110,7 @@ export default function CapstonePage(){
                             <input name="comments" onBlur={handleBlur} value={values.comments} onChange={handleChange} type="text" placeholder="Leave your comments here" className="input input-bordered w-full max-w-xs" />
                             {touched.comments && errors.comments?(<div className="text-error">{errors.comments}</div>):""}
                             <button className="btn btn-active btn-neutral" type="submit">{loading===true?(<span className="loading loading-dots loading-md"></span>):"Submit"}</button>
-                            </form>):<h2 className="text-xl text-center"><b>Submitted for Review</b></h2>}
+                            </form>):<h2 className="text-xl text-center"><b>SUBMITTED FOR REVIEW</b></h2>}
                             <br/>
                             <h3 className="text-xl">Warning: 2 mark may be deducted automatically from your total score if your submission is beyond the deadline</h3><br/>
                             <h3 className="text-heading text-center"><b>{msg?msg:""}</b></h3>

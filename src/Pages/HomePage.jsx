@@ -18,7 +18,7 @@ export default function HomePage(){
         <MainSpace>
             <div className="subject-section">
             <div className="row subject-section-flex">
-                    <div className="col-7 text-secondary font-extrabold">
+                    <div className="col-7 text-neutral">
                             <div className="hero profile-section-1">
                             <div className="hero-content text-center">
                             <div className="max-w-md">

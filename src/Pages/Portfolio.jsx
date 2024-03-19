@@ -41,7 +41,7 @@ export default function PortfolioPage(){
     return(
         //portfolio component as children for mainspace component
         <MainSpace>
-             <div className="subject-section text-secondary font-extrabold">
+             <div className="subject-section text-neutral">
                 <div className="row portfolio-section">
                     <div className="col-6 ">
                             <div className="hero portfolio-section-1">
@@ -83,7 +83,7 @@ export default function PortfolioPage(){
                             </div>
                             </div><br/><br/><br/><br/><br/><br/>
                     </div>
-                    ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12"><b>Submitted for Review</b></h1>
+                    ):<h1 className="col-6 text-center text-4xl mt-40 sm:ml-12"><b>SUBMITTED FOR REVIEW</b></h1>
                     }
                     <br/><br/><br/><br/><br/><br/>
                 </div>
